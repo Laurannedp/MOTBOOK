@@ -9,6 +9,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     end
 
     def show
+      @task = Task.new
+      @task = policy_scope(Task)
     end
 
     def new
