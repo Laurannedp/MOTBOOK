@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_160411) do
+ActiveRecord::Schema.define(version: 2020_05_25_155446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,26 +18,33 @@ ActiveRecord::Schema.define(version: 2020_05_25_160411) do
   create_table "actions", force: :cascade do |t|
     t.string "name"
     t.string "url"
+    t.bigint "task_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_actions_on_task_id"
   end
 
   create_table "mots", force: :cascade do |t|
     t.string "name"
+    t.date "duedate"
     t.string "description"
+    t.string "tag"
+    t.string "emoticon"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "tag"
-    t.string "emotigon"
+    t.index ["user_id"], name: "index_mots_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.date "duedate"
+    t.integer "delay"
     t.text "description"
+    t.boolean "priority"
+    t.bigint "mot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "priority"
+    t.index ["mot_id"], name: "index_tasks_on_mot_id"
   end
 
   create_table "users", force: :cascade do |t|

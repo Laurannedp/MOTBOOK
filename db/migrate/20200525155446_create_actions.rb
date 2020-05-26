@@ -3,6 +3,7 @@ class CreateActions < ActiveRecord::Migration[6.0]
     create_table :actions do |t|
       t.string :name
       t.string :url
+      t.references :task
 
       t.timestamps
     end
