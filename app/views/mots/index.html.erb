@@ -1,23 +1,25 @@
 
-      <div class="row">
-        <div class="col-md-2">
-          <h1 class="my-3 text-center">My Mots</h1>
-          <%= form_tag mots_path, class: 'search-style form-inline', method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-            placeholder: "Search"
-            %>
-          <% end %>
-            <% @mots.each do |mot| %>
-              <%= link_to mot_path(mot), remote: true do %>
-              <p><%= mot.emoticon %> <%= mot.name %></p>
-              <% end %>
-            <% end %>
-            <%= link_to "New Mot", new_mot_path, remote: true %>
-        </div>
-          <div class="col-md-10">
-           <p>Mot number 1 (insert show here)</p>
-         </div>
-         <hr class="my-4">
-       </div>
+<div class="row">
+  <div class="col-md-2">
+    <h1 class="my-3 text-center">My Mots</h1>
+    <%= form_tag mots_path, class: 'search-style form-inline', method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+      placeholder: "Search"
+      %>
+      <% end %>
+      <% @mots.each do |mot| %>
+      <div class="flex-center mt-4" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
+        <p><%= mot.emoticon %> <%= mot.name %></p>
+      </div>
+      <% end %>
+      <%= link_to "New Mot", new_mot_path, remote: true %>
+    </div>
+    <div class="col-md-10">
+      <div class="counter" id="wrapper">
+        <%= render "show_mot", mot: @mots.first  %>
+      </div>
+    </div>
+    <hr class="my-4">
+  </div>
