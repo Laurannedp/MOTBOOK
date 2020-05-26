@@ -16,6 +16,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     end
 
     def show
+      @task = Task.new
+      @task = policy_scope(Task)
       html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
       render json: { html_string: html_string }
     end
