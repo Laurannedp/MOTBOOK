@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @task.mot = @mot
     authorize @task
     if @task.save
-      redirect_to mot_path(@mot)
+      redirect_to mots_path
     else
       render :new
     end
@@ -26,14 +26,13 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     @mot = Mot.find(params[:mot_id])
-    redirect_to mot_path(@mot)
+    redirect_to mots_path
   end
 
   def destroy
     @task.destroy
     @mot = Mot.find(params[:mot_id])
     redirect_to mot_path(@mot)
-
   end
 
   private

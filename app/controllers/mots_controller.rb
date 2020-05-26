@@ -2,8 +2,15 @@ class MotsController < ApplicationController
 before_action :set_mot, only: [:show, :edit, :update, :destroy]
     def index
       if params[:query].present?
-        @mots = policy_scope(Mot.where(name: params[:query]))
-      else
+      sql_query = " \
+        mots.name ILIKE :query \
+        OR mots.description ILIKE :query \
+        OR tasks.name ILIKE :query \
+        OR tasks.description ILIKE :query \
+      "
+      @mots = Mot.joins(:tasks).where(sql_query, query: "%#{params[:query]}%")
+      @mots = policy_scope(@mots).uniq
+     else
         @mots = policy_scope(Mot)
       end
     end
@@ -11,10 +18,13 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     def show
       @task = Task.new
       @task = policy_scope(Task)
+      html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
+      render json: { html_string: html_string }
     end
 
     def new
         @mot = Mot.new
+        authorize @mot
     end
 
     def create
@@ -53,4 +63,3 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
       authorize @mot
     end
 end
-
