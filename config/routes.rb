@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'mots#index'
+  devise_for :users
   resources :mots do
     resources :tasks, only: [:new, :create, :edit, :update] do
       resources :actions, only: [:new, :create, :edit, :update]
