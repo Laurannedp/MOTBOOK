@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root to: 'mots#index'
+  devise_for :users
+  resources :mots
+
   get 'tasks/create'
   get 'tasks/update'
   devise_for :users
