@@ -1,51 +1,47 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-    def index
-        @tasks = policy_scope(Task)
-      end
+  before_action :set_task, only: [ :destroy, :edit, :update]
+  def new
+    @task = Task.new
+    @mot = Mot.find(params[:mot_id])
+    authorize @task
+  end
 
-
-    def show
+  def create
+    @mot = Mot.find(params[:mot_id])
+    @task = Task.new(task_params)
+    @task.mot = @mot
+    authorize @task
+    if @task.save
+      redirect_to mots_path
+    else
+      render :new
     end
+  end
 
-    def new
-        @task = Task.new
-        authorize @task
-    end
+  def edit
+    @mot = Mot.find(params[:mot_id])
+    authorize @task
+  end
 
-    def create
-        @task = Task.new(task_params)
-        @task.user = current_user
-        authorize @task
-        if @task.save
-            redirect_to task_path(@task)
-          else
-            render :new
-          end
-    end
+  def update
+    @task.update(task_params)
+    @mot = Mot.find(params[:mot_id])
+    redirect_to mots_path
+  end
 
-    def edit
-    end
+  def destroy
+    @task.destroy
+    @mot = Mot.find(params[:mot_id])
+    redirect_to mot_path(@mot)
+  end
 
-    def update
-        @task.update(task_params)
-        redirect_to tasks_path
-    end
+  private
 
-    def destroy
-        @task.destroy
-        redirect_to tasks_path
-    end
-
-    private
-
-    def task_params
-      params.require(:task).permit(:name, :delay, :description, :priority)
-    end
-
-   def set_task
-      @task = Task.find(params[:id])
-      authorize @task
-    end
-
+  def task_params
+    params.require(:task).permit(:name, :delay, :description, :priority)
+  end
+  def set_task
+    @task = Task.find(params[:id])
+    authorize @task
+  end
 end
