@@ -32,23 +32,23 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
 
     def update
         @mot.update(mot_params)
-        redirect_to mots_path
+        redirect_to mot_path
     end
 
     def destroy
         @mot.destroy
-        redirect_to mots_path
+        redirect_to mot_path
     end
 
     private
 
-    def restaurant_params
+    def mot_params
       params.require(:mot).permit(:name, :duedate, :description, :tag, :emoticon)
     end
 
-   def set_mot
+  def set_mot
       @mot = Mot.find(params[:id])
       authorize @mot
-    end
+  end
 end
 

@@ -1,0 +1,47 @@
+.container-login-background {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  padding: 15px;
+}
+
+.container-login-0 {
+  width: 390px;
+  background-color: transparent;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  overflow: hidden;
+  margin: auto;
+  display: block;
+}
+
+.container-login {
+  width: 100%;
+  border-radius: 5%;
+  background-color: white;
+  padding: 10px;
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container-login-logo {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  margin: auto;
+
+}
+
+
+
