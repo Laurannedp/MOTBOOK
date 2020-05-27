@@ -13,6 +13,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
      else
         @mots = policy_scope(Mot)
       end
+      @mot = Mot.new
     end
 
     def show
@@ -23,8 +24,10 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     end
 
     def new
-        @mot = Mot.new
-        authorize @mot
+      @mot = Mot.new
+      authorize @mot
+      html_string = render_to_string( partial: "mots/new.html.erb", locals: {mot: @mot} )
+      render json: { html_string: html_string }
     end
 
     def create
