@@ -3,7 +3,7 @@
         <%= simple_form_for(@mot, remote: true) do |f| %>
           <div class="row">
               <div class="col p-4">
-                <%= f.input :emoticon, label: 'Emoticon', error: 'Description is mandatory, please specify one' %>
+                <%= f.input :emoticon, label: 'Emoticon', data: { emojiable: true }, error: 'Description is mandatory, please specify one' %>
               </div>
               <div class="col p-4">
                 <%= f.input :name, label: 'Name', error: 'Description is mandatory, please specify one' %>

@@ -11,7 +11,7 @@
       <% end %>
       <% @mots.each do |mot| %>
       <div class="flex-center mt-4" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
-        <p><%= mot.emoticon %> <%= mot.name %></p>
+        <p><%= content_with_emoji(mot.emoticon) %> <%= mot.name %></p>
       </div>
       <% end %>
       <%= link_to "New Mot", new_mot_path, remote: true %>
