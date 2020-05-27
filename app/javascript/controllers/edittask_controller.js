@@ -22,7 +22,7 @@ connect() {console.log("connected_newtask")}
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappernewtask")
+         let wrapper = document.querySelector("#wrapperedittask")
           wrapper.innerHTML = data.html_string
       });
   }
