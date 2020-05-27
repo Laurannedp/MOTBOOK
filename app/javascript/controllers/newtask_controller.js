@@ -11,16 +11,18 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-  renderMot = () => {
+
+connect() {console.log("connected_newtask")}
+
+  createTask = () => {
     let motId = this.element.dataset.motId
-    fetch(`/mots/${motId}`, { headers: {
+    fetch(`/mots/${motId}/tasks/new`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappermot")
+         let wrapper = document.querySelector("#wrappernewtask")
           wrapper.innerHTML = data.html_string
       });
   }
 }
-

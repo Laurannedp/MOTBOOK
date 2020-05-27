@@ -11,9 +11,11 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-  renderMot = () => {
-    let motId = this.element.dataset.motId
-    fetch(`/mots/${motId}`, { headers: {
+
+connect() {console.log("connected")}
+
+  createMot = () => {
+    fetch(`/mots/new`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
@@ -23,4 +25,3 @@ export default class extends Controller {
       });
   }
 }
-

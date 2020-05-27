@@ -1,0 +1,31 @@
+<div id=“tasks”>
+  <% if mot.tasks.any? %>
+  <% mot.tasks.each do |task| %>
+  <div class="container border mt-2">
+    <div class="row">
+      <div class="col-4 pt-4">
+        <%= task.name %>
+      </div>
+      <div class="col-2 pt-4">
+        <%= 'MOT - ' + task.delay.to_s + ' days' %>
+      </div>
+      <div class="col-4 pt-4">
+        <%= task.description %>
+      </div>
+      <div class="flex-center mt-4" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+       <p data-action="click->edittask#editTask">Edit</p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% else %>
+  <%= 'No task yet' %>
+  <% end %>
+</div>
+<div >
+  <div class="flex-center mt-4" data-controller="newtask" data-mot-id="<%= mot.id %>">
+       <p data-action="click->newtask#createTask">New task</p>
+  </div>
+    <div id="wrappernewtask"></div>
+</div>
+<hr class="my-4">

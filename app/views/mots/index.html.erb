@@ -14,10 +14,12 @@
         <p><%= mot.emoticon %> <%= mot.name %></p>
       </div>
       <% end %>
-      <%= link_to "New Mot", new_mot_path, remote: true %>
+      <div class="flex-center mt-4" data-controller="newmot">
+       <p data-action="click->newmot#createMot">New Mot</p>
+      </div>
     </div>
     <div class="col-md-10">
-      <div class="counter" id="wrapper">
+      <div id="wrappermot">
         <%= render "show_mot", mot: @mots.first  %>
       </div>
     </div>

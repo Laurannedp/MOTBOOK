@@ -23,8 +23,10 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     end
 
     def new
-        @mot = Mot.new
-        authorize @mot
+      @mot = Mot.new
+      authorize @mot
+      html_string = render_to_string( partial: "mots/new.html.erb", locals: {mot: @mot} )
+      render json: { html_string: html_string }
     end
 
     def create
@@ -32,7 +34,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         if @mot.save
-            redirect_to mot_path(@mot)
+            redirect_to mots_path
           else
             render :new
           end
