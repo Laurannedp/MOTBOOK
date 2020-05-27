@@ -13,7 +13,6 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
      else
         @mots = policy_scope(Mot)
       end
-      @mot = Mot.new
     end
 
     def show
@@ -35,7 +34,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         if @mot.save
-            redirect_to mot_path(@mot)
+            redirect_to mots_path
           else
             render :new
           end

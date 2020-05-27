@@ -15,13 +15,12 @@ export default class extends Controller {
 connect() {console.log("connected")}
 
   createMot = () => {
-    console.log("click")
     fetch(`/mots/new`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrapper")
+         let wrapper = document.querySelector("#wrappermot")
           wrapper.innerHTML = data.html_string
       });
   }

@@ -4,6 +4,8 @@ class TasksController < ApplicationController
     @task = Task.new
     @mot = Mot.find(params[:mot_id])
     authorize @task
+    html_string = render_to_string( partial: "tasks/new.html.erb", locals: {task: @task} )
+    render json: { html_string: html_string }
   end
 
   def create
@@ -21,6 +23,8 @@ class TasksController < ApplicationController
   def edit
     @mot = Mot.find(params[:mot_id])
     authorize @task
+    html_string = render_to_string( partial: "tasks/new.html.erb", locals: {task: @task} )
+    render json: { html_string: html_string }
   end
 
   def update
