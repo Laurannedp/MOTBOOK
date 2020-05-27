@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :mots do
     resources :tasks, only: [:new, :create, :edit, :update] do
       resources :actions, only: [:new, :create, :edit, :update]
+    end
   end
   resources :tasks, only: [:index, :destroy]
   resources :action, only: [:index, :destroy]
