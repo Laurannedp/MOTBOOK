@@ -1,0 +1,17 @@
+
+    <div class="container">
+        <%= simple_form_for([@mot, @task, @trigger]) do |f| %>
+          <div class="row">
+              <div class="col p-4">
+                <%= f.input :name, label: false, error: 'A name is mandatory, please specify one' %>
+              </div>
+              <div class="col p-4">
+                <%= f.input :url, label: false, error: 'A description is mandatory, please specify one' %>
+              </div>
+          </div>
+            <div>
+           <%= f.submit 'Save', class: "btn-primary" %>
+            </div>
+        <% end %>
+      <hr class="my-4">
+    </div>

@@ -12,6 +12,8 @@ class TriggersController < ApplicationController
     @task = Task.find(params[:task_id])
     @mot = Mot.find(params[:mot_id])
     authorize @trigger
+    html_string = render_to_string( partial: "triggers/new.html.erb", locals: {task: @task} )
+    render json: { html_string: html_string }
   end
 
   def create
@@ -31,7 +33,7 @@ class TriggersController < ApplicationController
     @mot = Mot.find(params[:mot_id])
     @task = Task.find(params[:task_id])
     authorize @trigger
-    html_string = render_to_string( partial: "trigger/edit.html.erb", locals: {task: @task} )
+    html_string = render_to_string( partial: "triggers/new.html.erb", locals: {task: @task} )
     render json: { html_string: html_string }
   end
 
