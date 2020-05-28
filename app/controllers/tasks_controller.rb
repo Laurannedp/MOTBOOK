@@ -20,6 +20,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def check
+    @task = Task.find(params[:task_id])
+    @task.completed = !@task.completed
+    @task.save
+    authorize @task
+    html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
+    render json: { html_string: html_string }
+  end
+
   def edit
     @mot = Mot.find(params[:mot_id])
     authorize @task

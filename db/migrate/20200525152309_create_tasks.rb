@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :delay
       t.text :description
       t.boolean :priority
+      t.boolean :completed
       t.references :mot
 
       t.timestamps

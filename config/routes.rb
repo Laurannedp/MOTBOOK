@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :mots do
     resources :tasks, only: [:new, :create, :edit, :update] do
+      get "check", to: "tasks#check"
       resources :triggers, only: [:new, :create, :edit, :update]
     end
   end

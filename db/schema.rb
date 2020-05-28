@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_153213) do
     t.integer "delay"
     t.text "description"
     t.boolean "priority"
+    t.boolean "completed"
     t.bigint "mot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

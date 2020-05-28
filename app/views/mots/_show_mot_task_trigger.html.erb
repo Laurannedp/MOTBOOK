@@ -1,7 +1,7 @@
 <% if task.triggers.any? %>
 <% task.triggers.each do |trigger| %>
-<div class="container border mt-2">
-  <div class="row">
+<div class="container border mt-2" data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
+  <div class="row" data-target="edittask.wrapper">
     <div class="col-6 p-4">
       trigger: <%= trigger.name %>
     </div>
@@ -9,7 +9,9 @@
       <%= trigger.url %>
     </div>
     <div class="col-2 pt-4">
-      <%= link_to "Edit", edit_mot_task_trigger_path(mot, task, trigger) %>
+      <div class="flex-center mt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
+       <i class="fas fa-edit" data-action="click->edittrigger#editTrigger"></i>
+      </div>
     </div>
   </div>
 </div>
@@ -17,7 +19,7 @@
 <% else %>
 <strong>No trigger yet</strong>
 <% end %>
-<div class="flex-center mt-4" data-controller="newtrigger" data-mot-id="<%= task.id %>">
-       <i class="fas fa-plus" data-action="click->newtrigger#createTrigger"></i>
+<div class="flex-center mt-4">
+       <i class="fas fa-plus" data-action="click->newtrigger#createTrigger" data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>" data-target="newtrigger.wrapper"></i>
   </div>
 <div id="wrappernewtrigger"></div>
