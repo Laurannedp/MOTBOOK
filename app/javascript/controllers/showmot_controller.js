@@ -11,7 +11,7 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-  renderMot = () => {
+renderMot = () => {
     let motId = this.element.dataset.motId
     fetch(`/mots/${motId}`, { headers: {
     "Content-Type": "application/json"

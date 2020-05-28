@@ -10,18 +10,19 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
+static targets = [ "checkwrapper" ]
 
-connect() {console.log("connected_newtask")}
-
-  createTask = () => {
+  checkboxTask = () => {
     let motId = this.element.dataset.motId
-    fetch(`/mots/${motId}/tasks/new`, { headers: {
+    let taskId = this.element.dataset.taskId
+    fetch(`/mots/${motId}/tasks/${taskId}/check`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappernewtask")
+         let wrapper = this.wrapperTarget
           wrapper.innerHTML = data.html_string
       });
   }
 }
+

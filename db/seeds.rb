@@ -9,7 +9,11 @@
 require 'faker'
 require 'open-uri'
 
+p "Start seeding..."
+
 User.destroy_all
+
+p "Destroyed done!"
 
 user = User.new
 user.email = 'thibaut@87seconds.com'
@@ -17,6 +21,8 @@ user.email = 'thibaut@87seconds.com'
 user.password = '123456'
 user.password_confirmation = '123456'
 user.save!
+
+p "Users created"
 
 4.times do
   mot = Mot.new(
@@ -27,6 +33,9 @@ user.save!
     emoticon: ["😃", "💁", "🐻", "🌻","🍔", "🍹", "🎷", "⚽️","🚘", "🏳️‍🌈", "🎉", "💡"].sample,
     user: user
   )
+
+p "Mot created"
+
   mot.save!
     rand(1..5).times do
       task = Task.new(
@@ -36,6 +45,9 @@ user.save!
         priority: Faker::Boolean,
         mot: mot
       )
+
+   p "Task created"
+
       task.save!
         rand(1..2).times do
           trigger = Trigger.new(
@@ -45,7 +57,10 @@ user.save!
           )
           trigger.save!
         end
+p "Trigger created"
     end
 end
+
+
 
 

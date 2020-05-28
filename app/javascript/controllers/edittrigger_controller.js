@@ -10,18 +10,21 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
+static targets = [ "triggerwrapper" ]
 
-connect() {console.log("connected_newtask")}
+connect() {console.log("connected_triggeredit")}
 
-  createTask = () => {
+  editTrigger = () => {
     let motId = this.element.dataset.motId
-    fetch(`/mots/${motId}/tasks/new`, { headers: {
+    let taskId = this.element.dataset.taskId
+    fetch(`/mots/${motId}/tasks/${taskId}/${triggerId}/edit`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappernewtask")
+         let wrapper = this.wrapperTarget
           wrapper.innerHTML = data.html_string
       });
   }
 }
+

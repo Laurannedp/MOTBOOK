@@ -3,7 +3,10 @@
   <% mot.tasks.each do |task| %>
   <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
     <div class="row" data-target="edittask.wrapper">
-      <div class="col-4 pt-4" >
+      <div class="col-1 pt-4" >
+      <input type="checkbox" <%= task.completed == true ? "checked" : "" %> data-action="click->checktask#checkboxTask" >
+      </div>
+      <div class="col-3 pt-4" >
         <%= task.name %>
       </div>
       <div class="col-2 pt-4">
@@ -17,10 +20,11 @@
       </div>
     </div>
   </div>
+  <%= render "mots/show_mot_task_trigger.html.erb", task: task, mot: mot %>
   <% end %>
   <% else %>
   <%= 'No task yet' %>
-  <%= render "show_mot_task_trigger.html.erb", task: task %>
+
   <% end %>
 </div>
 <div >
@@ -30,4 +34,3 @@
     <div id="wrappernewtask"></div>
 </div>
 <hr class="my-4">
-

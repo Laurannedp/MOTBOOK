@@ -8,13 +8,16 @@ class TaskPolicy < ApplicationPolicy
   def new?
     true
   end
+  def check?
+    record.mot.user == user
+  end
   def create?
-    true
+    record.mot.user == user
   end
   def update?
-    true
+    record.mot.user == user
   end
   def destroy?
-    record.user == user
+    record.mot.user == user
   end
 end
