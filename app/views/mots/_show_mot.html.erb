@@ -1,6 +1,67 @@
 
 <h1 class="my-3 text-center"><%= mot.emoticon %> <%= mot.name %></h1>
-<p><%= mot.description %></p>
+  <p><%= mot.description %></p>
+    <hr class="my-4">
+      <div class="row">
+        <div class="col-4 col-4 pt-4 ml-3 text-capitalize">
+          <%= 'name' %>
+        </div>
+        <div class="col-2 pt-4 pl-0 text-capitalize">
+          <%= 'delay' %>
+        </div>
+        <div class="col-4 pt-4 pl-0 text-capitalize">
+           <%= 'description' %>
+        </div>
+      </div>
+      <div id=“tasks”>
+        <% if mot.tasks.any? %>
+        <% mot.tasks.each do |task| %>
+        <div class="container border mt-2">
+          <div class="row">
+            <div class="col-4 pt-4">
+              <%= task.name %>
+            </div>
+            <div class="col-2 pt-4">
+              <%= 'MOT - ' + task.delay.to_s + ' days' %>
+            </div>
+            <div class="col-4 pt-4">
+              <%= task.description %>
+            </div>
+            <div class="col-2 pt-4">
+              <%= link_to "Edit", edit_mot_task_path(mot, task) %>
+            </div>
+          </div>
+        </div>
+         <% if task.triggers.any? %>
+        <% task.triggers.each do |trigger| %>
+        <div class="container border mt-2">
+          <div class="row">
+            <div class="col-6 p-4">
+              trigger: <%= trigger.name %>
+            </div>
+            <div class="col-4 p-4" style="btn-primary">
+              <%= trigger.url %>
+            </div>
+            <div class="col-2 pt-4">
+              <%= link_to "Edit", edit_mot_task_trigger_path(mot, task, trigger) %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% else %>
+          <strong>No trigger yet</strong>
+
+        <% end %>
+        <%= link_to "+New Trigger", new_mot_task_trigger_path(mot, task) %>
+        <% end %>
+        <% else %>
+          <%= 'No task yet' %>
+        <% end %>
+        </div>
+    <div >
+  <%= link_to "New", new_mot_task_path(mot) %>
+</div>
 <hr class="my-4">
-<%= render "show_mot_task.html.erb", mot: mot %>
+
+
 

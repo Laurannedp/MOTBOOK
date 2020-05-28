@@ -19,8 +19,11 @@
       </div>
     </div>
     <div class="col-md-10">
-      <div id="wrappermot">
+      <div class="counter" id="wrapper">
+        <% unless @mots.empty? %>
+
         <%= render "show_mot", mot: @mots.first  %>
+        <% end %>
       </div>
     </div>
     <hr class="my-4">

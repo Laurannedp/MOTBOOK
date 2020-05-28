@@ -7,8 +7,10 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         OR mots.description ILIKE :query \
         OR tasks.name ILIKE :query \
         OR tasks.description ILIKE :query \
+        OR triggers.name ILIKE :query \
+        OR triggers.url ILIKE :query \
       "
-      @mots = Mot.joins(:tasks).where(sql_query, query: "%#{params[:query]}%")
+      @mots = Mot.joins(:tasks, :triggers).where(sql_query, query: "%#{params[:query]}%")
       @mots = policy_scope(@mots).uniq
      else
         @mots = policy_scope(Mot)
@@ -18,6 +20,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     def show
       @task = Task.new
       @task = policy_scope(Task)
+      @trigger = Trigger.new
+      @trigger = policy_scope(trigger)
       html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
       render json: { html_string: html_string }
     end

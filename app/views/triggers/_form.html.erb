@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">New Trigger</h1>
+
+        <%= simple_form_for([@mot, @task, @trigger]) do |f| %>
+          <div class="row">
+              <div class="col p-4">
+                <%= f.input :name, label: 'Name', error: 'A name is mandatory, please specify one' %>
+              </div>
+              <div class="col p-4">
+                <%= f.input :url, label: 'Url', error: 'A description is mandatory, please specify one' %>
+              </div>
+          </div>
+            <div>
+              <%= f.button :submit, class: "btn-primary" %>
+            </div>
+        <% end %>
+      <hr class="my-4">
+    </div>
+</div>

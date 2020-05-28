@@ -38,12 +38,12 @@ user.save!
       )
       task.save!
         rand(1..2).times do
-          action = Action.new(
+          trigger = Trigger.new(
             name: Faker::Company.catch_phrase,
             url: Faker::Internet.domain_name,
             task: task
           )
-          action.save!
+          trigger.save!
         end
     end
 end
