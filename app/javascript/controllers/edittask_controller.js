@@ -10,7 +10,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-
+static targets = [ "wrapper" ]
 
 connect() {console.log("connected_newtask")}
 
@@ -22,7 +22,7 @@ connect() {console.log("connected_newtask")}
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappernewtask")
+         let wrapper = this.wrapperTarget
           wrapper.innerHTML = data.html_string
       });
   }

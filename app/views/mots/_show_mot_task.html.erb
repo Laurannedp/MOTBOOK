@@ -1,19 +1,19 @@
 <div id=“tasks”>
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
-  <div class="container border mt-2">
-    <div class="row">
-      <div class="col-4 pt-4">
+  <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
+    <div class="row" data-target="edittask.wrapper">
+      <div class="col-4 pt-4" >
         <%= task.name %>
       </div>
       <div class="col-2 pt-4">
-        <%= 'MOT - ' + task.delay.to_s + ' days' %>
+        <%= 'D+' + task.delay.to_s %>
       </div>
       <div class="col-4 pt-4">
         <%= task.description %>
       </div>
-      <div class="flex-center mt-4" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
-       <p data-action="click->edittask#editTask">Edit</p>
+      <div class="flex-center mt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+       <i class="fas fa-edit" data-action="click->edittask#editTask"></i>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
 </div>
 <div >
   <div class="flex-center mt-4" data-controller="newtask" data-mot-id="<%= mot.id %>">
-       <p data-action="click->newtask#createTask">New task</p>
+       <i class="fas fa-plus" data-action="click->newtask#createTask"></i>
   </div>
     <div id="wrappernewtask"></div>
 </div>
