@@ -13,9 +13,9 @@ export default class extends Controller {
 
   renderMot = () => {
     let motId = this.element.dataset.motId
-    fetch(`/mots/${motId}`, headers: {
+    fetch(`/mots/${motId}`, { headers: {
     "Content-Type": "application/json"
-  },)
+  }})
       .then(response => response.json())
       .then((data) => {
          let wrapper = document.querySelector("#wrapper")
