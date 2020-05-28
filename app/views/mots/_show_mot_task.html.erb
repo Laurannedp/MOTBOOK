@@ -20,6 +20,7 @@
   <% end %>
   <% else %>
   <%= 'No task yet' %>
+  <%= render "show_mot_task_trigger.html.erb", task: task %>
   <% end %>
 </div>
 <div >
@@ -29,3 +30,4 @@
     <div id="wrappernewtask"></div>
 </div>
 <hr class="my-4">
+
