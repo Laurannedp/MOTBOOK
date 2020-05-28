@@ -10,14 +10,15 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-static targets = [ "triggerwrapper" ]
+static targets = [ "wrapper" ]
 
 connect() {console.log("connected_triggeredit")}
 
   editTrigger = () => {
     let motId = this.element.dataset.motId
     let taskId = this.element.dataset.taskId
-    fetch(`/mots/${motId}/tasks/${taskId}/${triggerId}/edit`, { headers: {
+    let triggerId = this.element.dataset.triggerId
+    fetch(`/mots/${motId}/tasks/${taskId}/triggers/${triggerId}/edit`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
@@ -27,4 +28,3 @@ connect() {console.log("connected_triggeredit")}
       });
   }
 }
-

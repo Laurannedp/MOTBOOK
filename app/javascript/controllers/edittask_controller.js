@@ -12,7 +12,7 @@ import { Controller } from "stimulus";
 export default class extends Controller {
 static targets = [ "wrapper" ]
 
-connect() {console.log("connected_newtask")}
+connect() {console.log("connected_edittask")}
 
   editTask = () => {
     let motId = this.element.dataset.motId
