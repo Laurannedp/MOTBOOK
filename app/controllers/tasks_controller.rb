@@ -14,7 +14,8 @@ class TasksController < ApplicationController
     @task.mot = @mot
     authorize @task
     if @task.save
-      redirect_to mots_path
+    html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
+    render json: { html_string: html_string }
     else
       render :new
     end

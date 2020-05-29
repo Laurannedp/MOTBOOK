@@ -19,7 +19,9 @@
 <% else %>
 <strong>No trigger yet</strong>
 <% end %>
-<div class="flex-center mt-4" data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
+<div data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
+<div class="flex-center mt-4">
        <i class="fas fa-plus" data-action="click->newtrigger#createTrigger"></i>
 </div>
-  <div id="wrappernewtrigger"></div>
+  <div data-target='newtrigger.wrapper'></div>
+</div>

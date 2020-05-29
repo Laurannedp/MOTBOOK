@@ -1,6 +1,6 @@
 
     <div class="container">
-        <%= simple_form_for([@mot, @task, @trigger]) do |f| %>
+        <%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask", controller: "addtask"}}, remote: true   do |f| %>
           <div class="row">
               <div class="col p-4">
                 <%= f.input :name, label: false, error: 'A name is mandatory, please specify one' %>
