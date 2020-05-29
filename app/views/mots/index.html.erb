@@ -1,25 +1,22 @@
-
 <div class="row d-flex">
-  <div class="col-md-2">
-    <div class="main-sidebar-fixed">
-      <h1 class="sidebar-title">My Mots</h1>
-      <%= form_tag mots_path, class: 'search-style form-inline', method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search"
-      %>
-      <% end %>
-      <% @mots.each do |mot| %>
-      <div class="sidebar-card">
-        <div class="flex-center mt-4" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
-          <p class= "sidebar-mot-name"><%= mot.emoticon %> <%= mot.name %></p>
-        </div>
+  <div class="main-sidebar-fixed col-md-2">
+    <h1 class="sidebar-title">My Mots</h1>
+    <%= form_tag mots_path, class: 'search-style form-inline p-3', method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search"
+    %>
+    <% end %>
+    <% @mots.each do |mot| %>
+    <div class="sidebar-card ml-4">
+      <div class="flex-center mt-4" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
+        <p class= "sidebar-mot-name"><%= mot.emoticon %> <%= mot.name %></p>
       </div>
-      <% end %>
-      <div class="sidebar-card" data-controller="newmot">
-       <i class="fas fa-plus " data-action="click->newmot#createMot"></i>
-      </div>
+    </div>
+    <% end %>
+    <div class="sidebar-card ml-6" data-controller="newmot">
+      <i class="fas fa-plus" data-action="click->newmot#createMot"></i>
     </div>
   </div>
   <div class="col-md-10">
@@ -29,6 +26,5 @@
       <% end %>
     </div>
   </div>
-    <hr class="my-4">
+  <hr class="my-4">
 </div>
-
