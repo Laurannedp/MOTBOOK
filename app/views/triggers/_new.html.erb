@@ -8,6 +8,9 @@
               <div class="col p-4">
                 <%= f.input :url, label: false, error: 'A description is mandatory, please specify one' %>
               </div>
+              <div class="col p-4">
+                <%= f.select :feature, options_for_select(["mail", "slack"]), label: false, error: 'A feature is mandatory, please specify one' %>
+              </div>
           </div>
             <div>
            <%= f.submit 'Save', class: "btn-primary" %>

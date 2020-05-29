@@ -41,6 +41,9 @@ class TriggersController < ApplicationController
     @trigger.update(trigger_params)
     @mot = Mot.find(params[:mot_id])
     @task = Task.find(params[:task_id])
+      if @trigger.feature == "mail"
+        UserMailer.reminder.deliver_now
+      end
     redirect_to mots_path
   end
 
