@@ -1,9 +1,28 @@
 .title {
   color: white;
-  font-family: Ubuntu-Bold;
+  font-family: 'Roboto', sans-serif;
   font-size: 48px;
   text-align: center;
   line-height: 1.2;
   text-transform: uppercase;
   display: block;
+}
+
+.sidebar-title {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 38px;
+  text-align: center;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: block;
+  padding: 35px;
+}
+
+.sidebar-mot-name {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 5px;
 }

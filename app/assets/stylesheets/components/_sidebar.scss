@@ -1,4 +1,14 @@
 .main-sidebar-fixed {
-  text-color: white;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #344955;
+  margin: auto;
+  position: relative;
+}
+
+.sidebar-card {
+  border-style: solid;
+  border-color: #232F34;
+  background-color: #344955;
 
 }
