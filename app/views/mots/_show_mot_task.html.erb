@@ -1,3 +1,9 @@
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+    ('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+
 <div id='tasks'>
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
@@ -19,7 +25,7 @@
       <div class="col-6">
         <%= task.name %>
       </div>
-      <div class="col-1" data-toggle="tooltip" data-placement="top" title=<%= task.description %>>
+      <div class="col-1" data-toggle="tooltip" data-placement="top" title="<%= task.description %>">
         <i class="fas fa-info-circle"></i>
       </div>
       <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
@@ -38,8 +44,9 @@
   <% end %>
 </div>
 <div class="container border" id='wrappernewtask'>
-  <div class="row align-items-center" style="height: 50px" data-controller="newtask" data-mot-id="<%= mot.id %>">
+  <div class="row align-items-center ml-2" style="height: 50px" data-controller="newtask" data-mot-id="<%= mot.id %>">
+      <div class="col-4">
        <p data-action="click->newtask#createTask"><i class="fas fa-plus" ></i> Add a Task</p>
+      </div>
   </div>
 </div>
-<hr class="my-4">

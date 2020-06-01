@@ -11,7 +11,7 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-connect() {console.log("connected")}
+connect() {console.log("connected_newmot")}
 
   createMot = () => {
     fetch(`/mots/new`, { headers: {
@@ -19,7 +19,7 @@ connect() {console.log("connected")}
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappermot")
+         let wrapper = document.querySelector("#wrappernewmot")
           wrapper.innerHTML = data.html_string
       });
   }
