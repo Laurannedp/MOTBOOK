@@ -9,4 +9,12 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match "Hi", mail.body.encoded
   end
 
+  def hello
+    mail(
+      :subject => 'Hello from Postmark',
+      :to  => 'pfouarge@planetfirst.partners',
+      :from => 'pfouarge@planetfirst.partners',
+      :html_body => '<strong>Hello</strong> dear Postmark user.',
+      :track_opens => 'true')
+  end
 end

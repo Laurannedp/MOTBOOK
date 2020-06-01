@@ -62,6 +62,9 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "MOTBOOK_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings   = { api_token: ENV['6c4764e8-c4cf-473d-87f9-09cc29b6c671'] }
+  config.action_mailer.default_url_options = { host: "motbook-laurannedp.herokuapp.com" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
