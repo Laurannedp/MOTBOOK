@@ -2,13 +2,13 @@
   <%= simple_form_for [@mot, @task], html: { data: {action: "ajax:success->addtask#addTask", controller: "addtask"}}, remote: true do |f| %>
     <div class="row">
       <div class="col-2 pt-4">
-        <%= f.input :delay, label: false, error: 'A delay is mandatory, please specify one' %>
+        <%= f.input :delay, placeholder: 'Delay', label: false, error: 'A delay is mandatory, please specify one' %>
       </div>
       <div class="col-3 pt-4">
-        <%= f.input :name, label: false, error: 'A name is mandatory, please specify one' %>
+        <%= f.input :name, placeholder: 'Your task name', label: false, error: 'A name is mandatory, please specify one' %>
       </div>
       <div class="col-3 pt-4">
-        <%= f.input :description, label: false, error: 'A description is mandatory, please specify one', input_html: {rows: 1} %>
+        <%= f.input :description, placeholder: 'Your task description', label: false, error: 'A content is mandatory, please specify one', input_html: {rows: 1} %>
       </div>
       <div class="col-4 pt-4">
       <%= f.submit 'Save', class: "btn-primary" %>

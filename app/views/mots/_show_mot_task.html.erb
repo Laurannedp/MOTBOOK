@@ -3,7 +3,7 @@
   <% mot.tasks.each do |task| %>
   <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
     <div class="row" data-target="edittask.wrapper">
-      <div class="col-2 pt-4">
+      <div class="col-1 pt-4">
         <%= 'D+' + task.delay.to_s %>
       </div>
       <div class="col-1 pt-4" >
@@ -12,13 +12,10 @@
         <a class="col-1 pt-4" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
        <i class="fas fa-caret-right"></i>
       </a>
-      <div class="col-3 pt-4" >
+      <div class="col-8 pt-4" data-toggle="tooltip" data-placement="top" title=<%= task.description %>>
         <%= task.name %>
       </div>
-      <div class="col-4 pt-4">
-        <%= task.description %>
-      </div>
-      <div class="flex-center mt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+      <div lass="flex-center mt-4 col-1 pt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
        <i class="fas fa-edit" data-action="click->edittask#editTask"></i>
       </div>
     </div>
