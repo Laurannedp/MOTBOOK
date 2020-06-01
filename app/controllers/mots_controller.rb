@@ -33,11 +33,9 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot = Mot.new(mot_params)
         @mot.user = current_user
         authorize @mot
-        if @mot.save
+        @mot.save
             redirect_to mots_path
-          else
-            render :new
-          end
+
     end
 
     def edit
