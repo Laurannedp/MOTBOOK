@@ -2,18 +2,18 @@
     <div class="container">
         <%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask", controller: "addtask"}}, remote: true   do |f| %>
           <div class="row">
-              <div class="col p-4">
+              <div class="col-4 p-4">
                 <%= f.input :name, label: false, error: 'A name is mandatory, please specify one' %>
               </div>
-              <div class="col p-4">
+              <div class="col-4 p-4">
                 <%= f.input :url, label: false, error: 'A description is mandatory, please specify one' %>
               </div>
-              <div class="col p-4">
+              <div class="col-2 p-4">
                 <%= f.select :feature, options_for_select(["mail", "slack"]), label: false, error: 'A feature is mandatory, please specify one' %>
               </div>
-          </div>
-            <div>
-           <%= f.submit 'Save', class: "btn-primary" %>
+              <div class="col-2 p-4">
+             <%= f.submit 'Save', class: "btn-primary" %>
+              </div>
             </div>
         <% end %>
       <hr class="my-4">
