@@ -1,5 +1,5 @@
 <div class="row d-flex">
-  <div class="main-sidebar-fixed col-md-2">
+  <div class="main-sidebar-fixed col-1 col-md-2">
     <h1 class="sidebar-title">My Mots</h1>
     <%= form_tag mots_path, class: 'search-style form-inline ml-4', method: :get do %>
 
@@ -18,12 +18,12 @@
       </div>
     </div>
     <% end %>
-    <div class="sidebar-card ml-6" data-controller="newmot">
-      <i class="fas fa-plus" data-action="click->newmot#createMot"></i>
+    <div class="sidebar-card ml-4 flex-center mt-4" data-controller="newmot">
+      <p class= "sidebar-mot-name" data-action="click->newmot#createMot"><i class="fas fa-plus"></i> Add a MOT</p>
 
     </div>
   </div>
-  <div class="col-md-10">
+  <div class="col-10 col-md-9">
     <div id="wrappermot">
       <% unless @mots.empty? %>
       <%= render "show_mot", mot: @mots.first  %>
