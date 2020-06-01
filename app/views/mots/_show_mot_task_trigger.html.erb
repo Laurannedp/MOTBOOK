@@ -1,29 +1,39 @@
 <% if task.triggers.any? %>
-<% task.triggers.each do |trigger| %>
-<div data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
-  <div class="row" data-target="edittrigger.wrapper">
+    <% task.triggers.each do |trigger| %>
+      <div data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
+        <div class="row" data-target="edittrigger.wrapper">
+          <div class="col-1 p-4">
+          </div>
+          <div class="col-6 p-4">
+            <i class="fas fa-arrow-right"></i>  <%= trigger.name %>
+          </div>
+          <div class="col-4 p-4" style="btn-primary">
+            <%= trigger.url %>
+          </div>
+          <div class="flex-center mt-4 col-1 pt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
+           <i class="fas fa-edit" data-action="click->edittrigger#editTrigger"></i>
+         </div>
+       </div>
+      </div>
+    <% end %>
+<% else %>
+  <div class="row">
     <div class="col-1 p-4">
     </div>
     <div class="col-6 p-4">
-      <i class="fas fa-arrow-right"></i>  <%= trigger.name %>
+      <strong>No trigger yet</strong>
     </div>
-    <div class="col-4 p-4" style="btn-primary">
-      <%= trigger.url %>
-    </div>
-
-      <div class="flex-center mt-4 col-1 pt-4" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
-       <i class="fas fa-edit" data-action="click->edittrigger#editTrigger"></i>
-      </div>
-
   </div>
-</div>
 <% end %>
-<% else %>
-<strong>No trigger yet</strong>
-<% end %>
-<div data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
-<div data-target='newtrigger.wrapper'>
-       <p data-action="click->newtrigger#createTrigger"><i class="fas fa-plus"></i> Add a Trigger</p>
-</div>
-<div class="container border mt-2" ></div>
-</div>
+  <div class="row">
+    <div class="col-1 p-4">
+    </div>
+    <div class="col-6 p-4">
+      <div data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
+        <div data-target='newtrigger.wrapper'>
+         <p data-action="click->newtrigger#createTrigger"><i class="fas fa-plus"></i> Add a Trigger</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
