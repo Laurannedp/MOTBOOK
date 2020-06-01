@@ -12,12 +12,11 @@ import { Controller } from "stimulus";
 export default class extends Controller {
 static targets = [ "wrapper" ]
 
-connect() {console.log("connected_checktask")}
+connect() {console.log("connected_editmot")}
 
-  checkboxTask = (e) => {
-    let motId = e.target.dataset.motId
-    let taskId = e.target.dataset.taskId
-    fetch(`/mots/${motId}/tasks/${taskId}/check`, { headers: {
+  editMot = () => {
+    let motId = this.element.dataset.motId
+    fetch(`/mots/${motId}/edit`, { headers: {
     "Content-Type": "application/json"
   }})
       .then(response => response.json())
@@ -27,4 +26,3 @@ connect() {console.log("connected_checktask")}
       });
   }
 }
-

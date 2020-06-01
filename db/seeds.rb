@@ -28,7 +28,7 @@ p "Users created"
   mot = Mot.new(
     name: ["Onboarding Sylvia", "Q3 Closing", "Review Elisabeth", "Budget 2021"].sample,
     description: Faker::GreekPhilosophers.quote,
-    # duedate: Faker::Date,
+    duedate: Faker::Date.forward(days: 200),
     tag: ["HR", "Finance", "Operations", "Admin", "Sales"].sample,
     emoticon: ["😃", "💁", "🐻", "🌻","🍔", "🍹", "🎷", "⚽️","🚘", "🏳️‍🌈", "🎉", "💡"].sample,
     user: user

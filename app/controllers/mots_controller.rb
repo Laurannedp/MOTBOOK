@@ -34,17 +34,20 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         @mot.save
-            redirect_to mots_path
-
+        html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
+        render json: { html_string: html_string }
     end
 
     def edit
       @mots = policy_scope(Mot)
+      html_string = render_to_string( partial: "mots/new.html.erb", locals: {mot: @mot} )
+      render json: { html_string: html_string }
     end
 
     def update
-        @mot.update(mot_params)
-        redirect_to mot_path
+      @mot.update(mot_params)
+      html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
+      render json: { html_string: html_string }
     end
 
     def destroy

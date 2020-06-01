@@ -41,7 +41,8 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     @mot = Mot.find(params[:mot_id])
-    redirect_to mots_path
+    html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
+    render json: { html_string: html_string }
   end
 
   def destroy
@@ -53,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :delay, :description, :priority)
+    params.require(:task).permit(:name, :delay, :description, :priority, :completed)
   end
   def set_task
     @task = Task.find(params[:id])
