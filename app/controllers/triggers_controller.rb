@@ -43,7 +43,9 @@ class TriggersController < ApplicationController
     @trigger.update(trigger_params)
     @mot = Mot.find(params[:mot_id])
     @task = Task.find(params[:task_id])
+    flash[:notice] = "Your trigger has been updated!"
       if @trigger.feature == "mail"
+    # TriggerSendEmail.set(wait_until: @motduedate + @task.delay).perform_later(current_user.id)
         UserMailer.reminder.deliver_now
       end
     redirect_to mots_path
@@ -59,7 +61,7 @@ class TriggersController < ApplicationController
     private
 
   def trigger_params
-    params.require(:trigger).permit(:name, :url)
+    params.require(:trigger).permit(:name, :url, :feature)
   end
 
   def set_trigger

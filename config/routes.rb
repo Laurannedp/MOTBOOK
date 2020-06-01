@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   root to: 'mots#index'
-  # root to: 'mots#index'
   devise_for :users
   resources :mots do
     resources :tasks, only: [:new, :create, :edit, :update] do
