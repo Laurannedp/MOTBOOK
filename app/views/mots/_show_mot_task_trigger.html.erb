@@ -19,11 +19,17 @@
 </div>
 <% end %>
 <% else %>
-<strong>No trigger yet</strong>
+
+<div class="row">
+    <div class="col-1 p-4"></div>
+    <div class="col-6 p-4" data-target='newtrigger.wrapper'>
+       <p>No trigger yet</p>
+</div>
+</div>
 <% end %>
-<div data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
-<div data-target='newtrigger.wrapper'>
+<div class="row" data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
+    <div class="col-1 p-4"></div>
+<div class="col-6 p-4" data-target='newtrigger.wrapper'>
        <p data-action="click->newtrigger#createTrigger"><i class="fas fa-plus"></i> Add a Trigger</p>
 </div>
-<div class="container border mt-2" ></div>
 </div>

@@ -16,8 +16,9 @@ class TasksController < ApplicationController
     if @task.save
     html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
     render json: { html_string: html_string }
-    else
-      render :new
+        else
+    html_string = render_to_string( partial: "tasks/new.html.erb", locals: {task: @task} )
+    render json: { html_string: html_string }, status: :not_acceptable
     end
   end
 

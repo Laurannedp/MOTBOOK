@@ -1,8 +1,8 @@
 
-    <div class="container">
-        <%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask", controller: "addtask"}}, remote: true   do |f| %>
+
+        <%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask ajax:error->addtask#validateTask", controller: "addtask"}}, remote: true   do |f| %>
           <div class="row">
-              <div class="col-4 p-4">
+              <div class="col-4 p-4">s
                 <%= f.input :name, placeholder: 'Trigger title', label: false, error: 'A name is mandatory, please specify one' %>
               </div>
               <div class="col-4 p-4">
@@ -16,5 +16,4 @@
               </div>
             </div>
         <% end %>
-      <hr class="my-4">
-    </div>
+
