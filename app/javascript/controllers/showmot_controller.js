@@ -18,7 +18,7 @@ renderMot = () => {
   }})
       .then(response => response.json())
       .then((data) => {
-         let wrapper = document.querySelector("#wrappermot")
+         let wrapper = document.querySelector("#wrappernewmot")
           wrapper.innerHTML = data.html_string
       });
   }
