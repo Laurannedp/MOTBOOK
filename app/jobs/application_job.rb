@@ -1,4 +1,5 @@
 class ApplicationJob < ActiveJob::Base
+queue_as :default
   # Automatically retry jobs that encountered a deadlock
   # retry_on ActiveRecord::Deadlocked
 
@@ -6,4 +7,4 @@ class ApplicationJob < ActiveJob::Base
   # discard_on ActiveJob::DeserializationError
 end
 
-queue_as :default
+

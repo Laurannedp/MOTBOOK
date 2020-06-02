@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
+
+
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'postmark-rails'
@@ -34,6 +36,7 @@ gem 'faker'
 gem 'devise'
 gem 'pundit'
 gem 'turbolinks_render'
+gem 'ckeditor'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

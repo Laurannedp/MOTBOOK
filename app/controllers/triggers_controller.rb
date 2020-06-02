@@ -45,8 +45,7 @@ class TriggersController < ApplicationController
     @task = Task.find(params[:task_id])
     flash[:notice] = "Your trigger has been updated!"
       if @trigger.feature == "mail"
-    # TriggerSendEmail.set(wait_until: @motduedate + @task.delay).perform_later(current_user.id)
-        UserMailer.reminder.deliver_now
+      TriggerSendEmailJob.set(wait_until: @motduedate + @task.delay.days).perform_later(current_user.id, trigger.id)
       end
     redirect_to mots_path
   end

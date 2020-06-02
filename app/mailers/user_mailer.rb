@@ -7,8 +7,8 @@ class UserMailer < ApplicationMailer
   #
   def reminder
     @user = params[:user]
-    @mot = params[:mot]
-    mail(to: @user.email, subject: 'Your tasks of the week')
+    @trigger = params[:trigger]
+    mail(to: @user.email, subject: @trigger.name)
   end
 
   def hello
