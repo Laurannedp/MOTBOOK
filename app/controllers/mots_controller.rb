@@ -18,8 +18,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
       @tasks = Mot.all.map do |mot|
         mot.tasks.select{|task| (mot.duedate + task.delay.days).between?(Date.today.beginning_of_week, Date.today.end_of_week)}
       end.flatten.compact
-
-    end
+     end
 
     def show
       html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
@@ -38,8 +37,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         @mot.save
-        html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
-        render json: { html_string: html_string }
+        redirect_to mots_path( mot: @mot)
     end
 
     def edit
@@ -50,8 +48,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
 
     def update
       @mot.update(mot_params)
-      html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
-      render json: { html_string: html_string }
+      flash[:notice] = "Your mot has been updated!"
+      redirect_to mots_path( mot: @mot)
     end
 
     def destroy

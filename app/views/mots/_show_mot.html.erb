@@ -1,19 +1,19 @@
-<div class= "p-4 p-md-5" data-controller="editmot" data-mot-id="<%= mot.id %>">
-  <div class="row" >
-    <div class="col-10 pt-4" data-target="editmot.wrapper">
+<div data-controller="editmot" data-mot-id="<%= mot.id %>">
+  <div class="row align-items-center" style="height: 50px" >
+    <div class="col-10" data-target="editmot.wrapper">
       <h1 class="my-3 text-center"><%= mot.emoticon %> <%= mot.name %></h1>
-    </div class="col-2 pt-4">
-    <div class="flex-center mt-4 col-1 pt-4" >
+    </div>
+    <div class="col-1" >
       <i class="fas fa-edit" data-action="click->editmot#editMot"></i>
     </div>
   </div>
-  <div class="row">
-    <div class="col-2 pt-4">
+  <div class="row align-items-center" style="height: 100px">
+    <div class="col-2">
       <h2 class="badge badge-secondary"><%= mot.duedate %></h2>
     </div>
-    <div class="col-6 pt-4">
+    <div class="col-6">
     </div>
-    <div class="col-4 pt-4">
+    <div class="col-4">
     <% if mot.tasks.count > 0 %>
       <div class="progress">
         <% arraycompleted = mot.tasks.reject {|task| task.completed == false} %>
@@ -23,7 +23,17 @@
     <% end %>
     </div>
   </div>
-  <p><%= mot.description %></p>
+                <div id="editor"><%= mot.description %></div>
+                <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
   <div data-controller="checktask" data-target="checktask.wrapper">
     <%= render "mots/show_mot_task.html.erb", mot: mot %>
   </div>

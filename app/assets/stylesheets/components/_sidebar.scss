@@ -1,9 +1,16 @@
 .main-sidebar-fixed {
-  min-width: 250px;
-  max-width: 250px;
   background-color: #232F34;
 }
 
 .sidebar-card {
   border-bottom: solid 1px #344955;
+}
+
+.sidebar-card:hover {
+  border-bottom: solid 1px #344955;
+  background-color: #232F34;
+}
+
+.list-group-item-action:hover {
+  background-color: $success;
 }

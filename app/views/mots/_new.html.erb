@@ -1,13 +1,13 @@
 
         <%= simple_form_for(mot) do |f| %>
           <div class="row">
-             <div class="col-2 p-4">
+             <div class="col-3 p-4">
                 <%= f.input :duedate, label: false, as: :date, html5: true, error: 'Duedate is mandatory, please specify one' %>
               </div>
               <div class="col-1 p-4">
                 <%= f.input :emoticon, collection: (128512..128561 ).to_a.map{|i| [i].pack('U')}, label: false, error: 'Description is mandatory, please specify one' %>
               </div>
-              <div class="col-4 p-4">
+              <div class="col-3 p-4">
                 <%= f.input :name, label: false, placeholder: 'Your MOT name', error: 'Description is mandatory, please specify one' %>
               </div>
               <div class="col-2 p-4">

@@ -41,6 +41,7 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     @mot = Mot.find(params[:mot_id])
+    flash[:notice] = "Your task has been updated!"
     html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
     render json: { html_string: html_string }
   end

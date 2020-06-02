@@ -4,23 +4,6 @@
     }
   </style>
 <h1>Hi <%= @user.email %></h1>
-
-
-  <% if @mot.tasks.any? %>
-    <% @mot.tasks.each do |task| %>
-      <% if task.delay < 50 %>
-          <div>
-            <%= task.name %>
-          </div>
-          <div>
-            <%= 'D+' + task.delay.to_s %>
-          </div>
-          <div>
-            <%= task.description %>
-          </div>
-      <% end %>
-    <% end %>
-  <% end %>
-
+  <%= @trigger.url %>
 <%= link_to "Get back to your MOTs", root_url  %>
 <p>See ya!</p>

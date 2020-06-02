@@ -12,9 +12,12 @@ class UserMailerTest < ActionMailer::TestCase
   def hello
     mail(
       :subject => 'Hello from Postmark',
-      :to  => 'pfouarge@planetfirst.partners',
+      :to  => 'thibaut.dehem@gmail.com',
       :from => 'pfouarge@planetfirst.partners',
       :html_body => '<strong>Hello</strong> dear Postmark user.',
       :track_opens => 'true')
   end
 end
+
+
+# Test with: UserMailer.hello.deliver_now
