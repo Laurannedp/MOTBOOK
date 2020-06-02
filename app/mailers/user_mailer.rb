@@ -20,3 +20,5 @@ class UserMailer < ApplicationMailer
       :track_opens => 'true')
   end
 end
+
+# Test job is rails c with TriggerSendEmailJob.perform_later(User.first.id, Trigger.first.id)
