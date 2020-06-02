@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'reminder@mot.com'
+  default from: 'hello@motbook.io'
   layout 'mailer'
 end

@@ -15,6 +15,9 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
      else
         @mots = policy_scope(Mot)
       end
+      if params[:mot]
+        @mot = Mot.find(params[:mot])
+      end
     end
 
     def show
@@ -34,8 +37,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         @mot.save
-        html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
-        render json: { html_string: html_string }
+        redirect_to mots_path( mot: @mot)
     end
 
     def edit
@@ -46,8 +48,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
 
     def update
       @mot.update(mot_params)
-      html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
-      render json: { html_string: html_string }
+      flash[:notice] = "Your mot has been updated!"
+      redirect_to mots_path( mot: @mot)
     end
 
     def destroy
