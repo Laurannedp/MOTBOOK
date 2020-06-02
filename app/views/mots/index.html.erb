@@ -26,7 +26,7 @@
   <div class="col-10 col-md-9">
     <div id="wrappernewmot">
       <% unless @mots.empty? %>
-      <%= render "show_mot", mot: @mot || @mots.first  %>
+      <%= render "show_mot_homepage", tasks: @tasks  %>
       <% end %>
     </div>
   </div>

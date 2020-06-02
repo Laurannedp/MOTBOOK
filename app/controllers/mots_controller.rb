@@ -15,10 +15,10 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
      else
         @mots = policy_scope(Mot)
       end
-      if params[:mot]
-        @mot = Mot.find(params[:mot])
-      end
-    end
+      @tasks = Mot.all.map do |mot|
+        mot.tasks.select{|task| (mot.duedate + task.delay.days).between?(Date.today.beginning_of_week, Date.today.end_of_week)}
+      end.flatten.compact
+     end
 
     def show
       html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @mot} )
