@@ -1,5 +1,18 @@
 .main-sidebar-fixed {
   background-color: #232F34;
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 91vh;
+}
+
+.column-1 {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-card {
