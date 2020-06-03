@@ -2,12 +2,12 @@
 <% task.triggers.each do |trigger| %>
 <div data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
   <div class="row align-items-center" style="height: 50px" data-target="edittrigger.wrapper">
-    <div class="col-1">
+    <div class="col-3">
     </div>
-    <div class="col-5">
+    <div class="col-2">
       <i class="fas fa-arrow-right"></i>  <%= trigger.name %>
     </div>
-    <div class="col-4" style="btn-primary">
+    <div class="col-5">
       <%= trigger.url %>
     </div>
     <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
