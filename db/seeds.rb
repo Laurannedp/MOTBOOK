@@ -51,7 +51,7 @@ p "User created"
       task1.save!
           trigger1 = Trigger.new(
             name: "Insurance contracts",
-            url: Faker::Internet.domain_name,
+            url: "Hey Like. Could you prepare the insurance shzzzl for Kate?",
             task: task1
           )
                 task1.save!
@@ -64,7 +64,7 @@ p "User created"
           trigger2.save!
           trigger3 = Trigger.new(
             name: "Prepare laptop, goodies, etc",
-            url: "just do it!",
+            url: "Just do it!",
             feature: "mail",
             task: task2
           )
