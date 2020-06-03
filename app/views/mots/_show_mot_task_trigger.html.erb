@@ -2,9 +2,9 @@
 <% task.triggers.each do |trigger| %>
 <div data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
   <div class="row align-items-center" style="height: 50px" data-target="edittrigger.wrapper">
-    <div class="col-3">
-    </div>
     <div class="col-2">
+    </div>
+    <div class="col-3">
       <i class="fas fa-arrow-right"></i>  <%= trigger.name %>
     </div>
     <div class="col-5">
@@ -26,8 +26,10 @@
 </div>
 <% end %>
 <div class="row align-items-center" style="height: 50px" data-controller="newtrigger" data-task-id="<%= task.id %>" data-mot-id="<%= mot.id %>">
-  <div class="col-1"></div>
+  <div class="col-2"></div>
   <div class="col-6" data-target='newtrigger.wrapper'>
    <p data-action="click->newtrigger#createTrigger"><i class="fas fa-plus"></i> Add a Trigger</p>
  </div>
 </div>
+
+
