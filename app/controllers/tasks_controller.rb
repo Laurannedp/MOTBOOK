@@ -48,8 +48,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    @mot = Mot.find(params[:mot_id])
-    redirect_to mot_path(@mot)
+    #redirect_to root_path(@task.mot, anchor: "mot-#{@task.mot.id}")
+    html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: { mot: @task.mot} )
+    render json: { html_string: html_string }
   end
 
   private

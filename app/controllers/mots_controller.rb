@@ -53,8 +53,8 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
     end
 
     def destroy
-        @mot.destroy
-        redirect_to mot_path
+      @mot.destroy
+      redirect_to root_path
     end
 
     private

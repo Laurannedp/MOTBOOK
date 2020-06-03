@@ -1,8 +1,8 @@
-<div id='tasks'>
+<div id="tasks" id="mot-<%= mot.id %>">
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
   <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
-    <div class="row align-items-center" style="height: 50px" data-target="edittask.wrapper">
+    <div class="row align-items-center p-3" style="height: 50px" data-target="edittask.wrapper">
       <div class="col-1">
         <% if task.delay > 0 %>
           <%= 'D+' + task.delay.to_s %>
@@ -25,6 +25,10 @@
       <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
        <i class="fas fa-edit" data-action="click->edittask#editTask"></i>
       </div>
+      <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+        <%#= link_to raw('<i class="fa fa-trash"></i>'), task_path(task), method: :delete, remote: true, data:{action: "edittask#destroyTask"} %>
+      <i class="fa fa-trash" data-action="click->edittask#destroyTask"></i>
+      </div>
     </div>
   </div>
     <div class="collapse" id="collapseExample-<%= task.id%>" >
@@ -41,10 +45,10 @@
 </div>
   <% end %>
 </div>
-<div class="container border" id='wrappernewtask'>
+<div class="container mt-2" id='wrappernewtask'>
   <div class="row align-items-center" style="height: 50px" data-controller="newtask" data-mot-id="<%= mot.id %>">
       <div class="col-4">
-       <p data-action="click->newtask#createTask"><i class="fas fa-plus" ></i> Add a Task</p>
+       <p data-action="click->newtask#createTask"><i class="fas fa-plus " ></i>   <strong>Add a Task</strong></p>
       </div>
   </div>
 </div>
