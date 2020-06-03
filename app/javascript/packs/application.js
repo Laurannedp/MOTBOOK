@@ -24,15 +24,20 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import "controllers"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
+import { tooltip } from '../packs/bootstrap_component';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  tooltip()
 });
 
-import "controllers"
 
 
+// window.addEventListener("DOMContentLoaded", () => {
+//     ('[data-toggle="tooltip"]').tooltip();
+//   });

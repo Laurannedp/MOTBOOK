@@ -1,9 +1,3 @@
-<!-- <script>
-    window.addEventListener("DOMContentLoaded", () => {
-    ('[data-toggle="tooltip"]').tooltip();
-  });
-</script> -->
-
 <div id="tasks" id="mot-<%= mot.id %>">
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
@@ -25,7 +19,7 @@
       <div class="col-6 <%= task.completed == true ? "done" : "undone" %>">
         <%= task.name %>
       </div>
-      <div class="col-1" data-toggle="tooltip" data-placement="top" title="<%= task.description %>">
+      <div class="col-1" id="bulle" data-toggle="tooltip" data-placement="top" title="<%= task.description %>">
         <i class="fas fa-info-circle"></i>
       </div>
       <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
