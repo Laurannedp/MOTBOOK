@@ -27,7 +27,7 @@ p "User created"
   mot1 = Mot.new(
     name: "Onboarding Kate",
     description: "Kate starts as full time marketer after her internship with Silvio. Make sure to give her warm welcome. She has 2 girls aged 3 and a dog named Dingo.",
-    duedate: Faker::Date.forward(days: 200),
+    duedate: Time.new(2020,06,01),
     tag: "HR",
     emoticon: "👋",
     user: user
@@ -145,7 +145,7 @@ p "Mot 1 created"
   mot2 = Mot.new(
     name: "HBDY to colleagues",
     description: "To each and every one!",
-    duedate: Time.new(2021,01,01),
+    duedate: Time.new(2020,01,01),
     tag: "Team",
     emoticon: "🎂",
     user: user
@@ -167,12 +167,26 @@ p "Mot 1 created"
           )
           trigger.save!
   end
+        task = Task.new(
+        name: "Happy birthday Pietro",
+        delay: 156,
+        description: "Happy to you Pietro! :-)",
+        priority: Faker::Boolean,
+        mot: mot2
+      )
+      task.save!
+          trigger = Trigger.new(
+            name: "Happy birthday to you !!",
+            url: "Happy birthdayyy to youuuuu... ",
+            task: task
+          )
+          trigger.save!
 p "Mot 2 created"
 
   mot3 = Mot.new(
-    name: "NYE teambuilding",
+    name: "Mid year teambuilding",
     description: "Let's make it wild",
-    duedate: Time.new(2021,01,01),
+    duedate: Time.new(2020,07,04),
     tag: "Team",
     emoticon: "🎉",
     user: user
@@ -256,12 +270,27 @@ p "Mot 5 created"
   mot6 = Mot.new(
     name: "Q2 closing",
     description: "Financial reporting to be sent to CFO",
-    duedate: Time.new(2021,06,30),
+    duedate: Time.new(2020,06,30),
     tag: "Finance",
     emoticon: "💡",
     user: user
   )
   mot6.save!
+        task1 = Task.new(
+        name: "VAT documents",
+        delay: -28,
+        description: "",
+        priority: Faker::Boolean,
+        mot: mot6
+      )
+      task1.save!
+      task2 = Task.new(
+        name: "Reporting by BU",
+        delay: -29,
+        description: "",
+        priority: Faker::Boolean,
+        mot: mot6
+      )
 
 p "Mot 6 created"
 
