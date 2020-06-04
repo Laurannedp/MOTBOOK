@@ -19,9 +19,17 @@
   border-bottom: solid 1px #344955;
 }
 
-.sidebar-card:hover {
+.sidebar-card {
   border-bottom: solid 1px #344955;
   background-color: #232F34;
+}
+
+.active-side-bar:hover {
+  background-color: $success !important;
+}
+
+.active-side-bar {
+  background-color: $success;
 }
 
 .list-group-item-action:hover {

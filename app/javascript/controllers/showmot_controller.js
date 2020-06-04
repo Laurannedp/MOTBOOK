@@ -12,7 +12,7 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-renderMot = () => {
+renderMot = (e) => {
     let motId = this.element.dataset.motId
     fetch(`/mots/${motId}`, { headers: {
     "Content-Type": "application/json"
@@ -21,6 +21,9 @@ renderMot = () => {
       .then((data) => {
          let wrapper = document.querySelector("#wrappernewmot")
           wrapper.innerHTML = data.html_string
+          document.querySelectorAll(".active-side-bar").forEach ((div) => div.classList.remove("active-side-bar"))
+          e.target.parentNode.parentNode.parentNode.classList.add("active-side-bar")
+          $('[data-toggle="tooltip"]').tooltip()
       });
   }
 }

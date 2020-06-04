@@ -23,7 +23,11 @@ connect() {console.log("connected_checktask")}
       .then(response => response.json())
       .then((data) => {
          let wrapper = this.wrapperTarget
-          wrapper.innerHTML = data.html_string
+         wrapper.innerHTML = data.html_string2
+         let wrappermot = document.querySelector("#wrappernewmot")
+         if (wrappermot) {
+          wrappermot.innerHTML = data.html_string
+         }
       });
   }
 }

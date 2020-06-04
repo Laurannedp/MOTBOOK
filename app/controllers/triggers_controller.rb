@@ -28,6 +28,7 @@ class TriggersController < ApplicationController
           TriggerSendSlackJob.perform_now(current_user.id, @trigger.id)
         elsif @trigger.feature == "mail"
           TriggerSendEmailJob.perform_now(current_user.id, @trigger.id)
+          # TriggerSendEmailJob.set(wait_until: @mot.duedate + @task.delay.days).perform_later(current_user.id, @trigger.id)
         elsif @trigger.feature == "whatsapp"
         # TriggerSendTwilioJob.set(wait_until: @motduedate + @task.delay.days).perform_later(current_user.id, trigger.id)
           TriggerSendTwilioJob.perform_now(current_user.id, @trigger.id)
