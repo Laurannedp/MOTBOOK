@@ -11,25 +11,24 @@
         <h2 class="badge badge-secondary"><%= task.mot.duedate + task.delay.days %></h2>
       </div>
       <div class="col-1 ">
-          <input type="checkbox" <%= task.completed == true ? "checked" : "" %> data-action="click->checktask#checkboxTask" data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>">
+          <input class="form-control custom-check" type="checkbox" <%= task.completed == true ? "checked" : "" %> data-action="click->checktask#checkboxTask" data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>">
       </div>
-      <div class="col-3 " >
+      <div class="col-2 " >
         <%= task.mot.emoticon %> <%= task.mot.name %>
       </div>
       <a class="col-1 " data-toggle="collapse" href="#collapseExample-<%= task.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
        <i class="fas fa-caret-right"></i>
       </a>
-      <div class="col-3 " data-toggle="tooltip" data-placement="top" title=<%= task.description %>>
+      <div class="col-4 " data-toggle="tooltip" data-placement="top" title=<%= task.description %>>
         <%= task.name %>
       </div>
       <div class="col-1 " >
         <h2 class="badge badge-secondary"><%= task.mot.tag %></h2>
       </div>
-      <div class="col-1 " data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>">
-       <i class="fas fa-edit" data-action="click->edittask#editTask"></i>
-      </div>
-      <div class="col-1" data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>">
-       <i class="fa fa-trash" data-action="click->destroytask#destroyTask"></i>
+      <div class="col-2" data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>">
+       <i class="fas fa-info-circle mx-1" id="bulle" data-toggle="tooltip" data-placement="top" title="<%= task.description %>"></i>
+       <i class="fas fa-edit mx-1" data-action="click->edittask#editTask"></i>
+       <i class="fa fa-trash mx-1" data-action="click->destroytask#destroyTask"></i>
       </div>
     </div>
   </div>

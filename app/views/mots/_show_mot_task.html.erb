@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div class="col-1" >
-        <input type="checkbox" <%= task.completed == true ? "checked" : "" %> data-action="click->checktask#checkboxTask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+        <input class="form-control custom-check" type="checkbox" <%= task.completed == true ? "checked" : "" %> data-action="click->checktask#checkboxTask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
       </div>
       <a class="col-1" data-toggle="collapse" href="#collapseExample-<%= task.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
        <i class="fas fa-caret-right"></i>
@@ -19,15 +19,10 @@
       <div class="col-6 <%= task.completed == true ? "done" : "undone" %>">
         <%= task.name %>
       </div>
-      <div class="col-1" id="bulle" data-toggle="tooltip" data-placement="top" title="<%= task.description %>">
-        <i class="fas fa-info-circle"></i>
-      </div>
-      <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
-       <i class="fas fa-edit" data-action="click->edittask#editTask"></i>
-      </div>
-      <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
-        <%#= link_to raw('<i class="fa fa-trash"></i>'), task_path(task), method: :delete, remote: true, data:{action: "edittask#destroyTask"} %>
-      <i class="fa fa-trash" data-action="click->edittask#destroyTask"></i>
+      <div class="col-2" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
+       <i class="fas fa-info-circle mx-1" id="bulle" data-toggle="tooltip" data-placement="top" title="<%= task.description %>"></i>
+       <i class="fas fa-edit mx-1" data-action="click->edittask#editTask"></i>
+        <i class="fa fa-trash mx-1" data-action="click->edittask#destroyTask"></i>
       </div>
     </div>
   </div>
