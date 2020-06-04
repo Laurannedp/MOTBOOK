@@ -17,10 +17,8 @@
       <% end %>
     </div>
     <% @mots.each do |mot| %>
-
       <div class="list-group-item-action">
       <div class="sidebar-card ml-2">
-
         <div class="flex-center m-2" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
           <p class= "sidebar-mot-name"><%= mot.emoticon %> <%= mot.name %></p>
         </div>
