@@ -1,14 +1,19 @@
 <div class="row">
-  <div class="main-sidebar-fixed col-2">
+  <div class="main-sidebar-fixed col-2" data-controller="sidebar">
+       <% if user_signed_in? %>
+          <div class="flex-center m-2">
+            <%= link_to "My Dashboard",root_path, class: "sidebar-mot-name-db" %>
+          </div>
+       <% end %>
 
-    <h1 class="sidebar-title">My Mots</h1>
-    <%= form_tag mots_path, class: 'search-style form-inline ml-2', method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control center ",
-    placeholder: "Search"
-    %>
-    <% end %>
+    <div class="search-card mb-4 ml-4">
+      <%= form_tag mots_path, class: 'search-style form-inline ml-2', method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control center ",
+      placeholder: "Search"%>
+      <% end %>
+    </div>
     <% @mots.each do |mot| %>
       <div class="list-group-item-action">
       <div class="sidebar-card ml-2">
