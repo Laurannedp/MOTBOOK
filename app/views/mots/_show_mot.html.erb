@@ -2,13 +2,13 @@
 <div data-controller="editmot" data-mot-id="<%= mot.id %>">
   <div class="row align-items-center" style="height: 50px" >
     <div class="col-10" data-target="editmot.wrapper">
-      <h1 class="my-3 text-center"><%= mot.emoticon %> <%= mot.name %></h1><i class="fas fa-edit" data-action="click->editmot#editMot"></i><%= link_to raw('<i class="fa fa-trash"></i>'), mot_path(mot), method: :delete, remote: true %>
+      <h1 class="my-3 text-center"><%= mot.emoticon %> <%= mot.name %></h1>
     </div>
     <div class="col-1" >
-
+<i class="fas fa-edit" data-action="click->editmot#editMot"></i>
     </div>
     <div class="col-1">
-
+    <%= link_to raw('<i class="fa fa-trash"></i>'), mot_path(mot), method: :delete, remote: true %>
       <!-- <i class="fa fa-trash" data-action="click->editmot#destroyMot"></i> -->
     </div>
 </div>
