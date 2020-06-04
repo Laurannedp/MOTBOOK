@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 
+gem 'twilio-ruby', '~> 5.36.0'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'postmark-rails'
