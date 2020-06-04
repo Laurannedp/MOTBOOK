@@ -1,0 +1,22 @@
+table{
+  width: 100%;
+}
+
+.first-column{
+  width: 10%;
+}
+
+.type-column{
+  width: 20%;
+}
+.message-column{
+  width: 50%;
+}
+
+.edit-column{
+  width: 20%;
+}
+.edit-column-content{
+  display: flex;
+  justify-content: center;
+}
