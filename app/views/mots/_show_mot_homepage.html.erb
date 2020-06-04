@@ -2,14 +2,14 @@
   <h1>Dashboard - Here are your tasks of the week</h1>
 </div>
 
-<div id='tasks'>
+<div id='tasks' data-controller="checktask">
   <% if tasks.any? %>
   <% tasks.each do |task| %>
   <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= task.mot.id %>" data-task-id="<%= task.id %>" >
     <div class="row align-items-center p-3" data-target="edittask.wrapper">
         <div class="col-1 " >
         <h3>
-        <span class="date">
+        <span class="date-calendar">
         <span class="month">
         <%= (task.mot.duedate+task.delay).strftime("%B") %>
         </span>
