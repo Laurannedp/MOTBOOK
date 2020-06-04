@@ -1,19 +1,21 @@
+<div class= "container-task ">
 
 <%= simple_form_for [@mot, @task], html: { data: {action: "ajax:success->addtask#addTask ajax:error->addtask#validateTask" , controller: "addtask"}}, remote: true do |f| %>
-  <div class="row align-items-center" style="height: 50px">
-      <div class="col-2">
+  <div class="row align-items-center" style="height: 70px">
+      <div class="col-2 ml-2 mt-3 mb-3">
         <%= f.input :delay, placeholder: 'Delay', label: false, error: 'A delay is mandatory, please specify one' %>
       </div>
-      <div class="col-1">
-      </div>
-      <div class="col-3">
+      <div class="col-3 mt-3 mb-3">
         <%= f.input :name, placeholder: 'Your task name', label: false, error: 'A name is mandatory, please specify one' %>
       </div>
-      <div class="col-3">
+      <div class="col-4 mt-3 mb-3">
         <%= f.input :description, placeholder: 'Your task description', label: false, error: 'A content is mandatory, please specify one', input_html: {rows: 1} %>
       </div>
-      <div class="col-2">
-      <%= f.submit 'Save', class: "btn-primary" %>
+      <div class="col-1 mt-3 mb-3">
+      <%= f.submit 'Save', class: "button-1" %>
     </div>
   </div>
 <% end %>
+
+</div>
+

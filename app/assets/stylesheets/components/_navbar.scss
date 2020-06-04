@@ -1,6 +1,9 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
+  display: flex;
+}
+.navbar-lewagon-avatar {
+  float: right;
 }
 
 .navbar-lewagon .navbar-collapse {
