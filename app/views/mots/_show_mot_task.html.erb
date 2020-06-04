@@ -20,9 +20,9 @@
         <%= task.name %>
       </div>
       <div class="col-2" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>">
-       <i class="fas fa-info-circle mx-1" id="bulle" data-toggle="tooltip" data-placement="top" title="<%= task.description %>"></i>
+       <i class="fas fa-info-circle mx-1" data-toggle="tooltip" data-placement="top" title="<%= task.description %>"></i>
        <i class="fas fa-edit mx-1" data-action="click->edittask#editTask"></i>
-        <i class="fa fa-trash mx-1" data-action="click->edittask#destroyTask"></i>
+        <i class="far fa-trash-alt mx-1" data-action="click->edittask#destroyTask"></i>
       </div>
     </div>
   </div>

@@ -1,21 +1,40 @@
 <% if task.triggers.any? %>
-<% task.triggers.each do |trigger| %>
-<div data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
-  <div class="row align-items-center" style="height: 50px" data-target="edittrigger.wrapper">
-    <div class="col-1">
-    </div>
-    <div class="col-5">
-      <i class="fas fa-arrow-right"></i>  <%= trigger.name %>
-    </div>
-    <div class="col-4" style="btn-primary">
-      <%= trigger.url %>
-    </div>
-    <div class="col-1" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>">
-     <i class="fas fa-edit" data-action="click->edittrigger#editTrigger"></i>
-   </div>
- </div>
-</div>
-<% end %>
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th class="first-column" scope="col"></th>
+        <th class="type-column" scope="col"></th>
+        <th class="message-column" scope="col"></th>
+        <th class="edit-column" scope="col"></th>
+      </tr>
+    </thead>
+    <% task.triggers.each do |trigger| %>
+    <tr data-controller="edittrigger" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" data-trigger-id="<%= trigger.id %>" data-target="edittrigger.wrapper">
+      <th scope="row" ></th>
+      <td>
+        <%  if trigger.feature == "mail"
+          icon = "far fa-envelope"
+        elsif trigger.feature == "slack"
+          icon = "fab fa-slack-hash"
+        elsif trigger.feature == "whatsapp"
+          icon = "fab fa-whatsapp"
+          end %>
+          <i class="<%= icon %>"></i>
+      </td>
+      <td>
+        <%= trigger.url %>
+      </td>
+      <td data-mot-id="<%= mot.id %>"
+          data-task-id="<%= task.id %>"
+          data-trigger-id="<%= trigger.id %>"
+          class="edit-column-content">
+        <i class="fas fa-edit" data-action="click->edittrigger#editTrigger"></i>
+      </td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
 <% else %>
 
 <div class="row align-items-center" style="height: 50px">
