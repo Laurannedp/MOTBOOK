@@ -1,8 +1,8 @@
 <div id="tasks" id="mot-<%= mot.id %>">
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
-  <div class="container border mt-2" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
-    <div class="row align-items-center p-3" style="height: 50px" data-target="edittask.wrapper">
+  <div class="container-task mt-4" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
+    <div class="row align-items-center m-4" style="height: 50px" data-target="edittask.wrapper">
       <div class="col-1">
         <% if task.delay > 0 %>
           <%= 'D+' + task.delay.to_s %>
@@ -40,10 +40,10 @@
 </div>
   <% end %>
 </div>
-<div class="container mt-2" id='wrappernewtask'>
-  <div class="row align-items-center" style="height: 50px" data-controller="newtask" data-mot-id="<%= mot.id %>">
-      <div class="col-4">
-       <p data-action="click->newtask#createTask"><i class="fas fa-plus " ></i>   <strong>Add a Task</strong></p>
+<div  id='wrappernewtask'>
+  <div class="button-1" data-controller="newtask" data-mot-id="<%= mot.id %>">
+      <div>
+       <p class="m-1"data-action="click->newtask#createTask"><i class="fas fa-plus " ></i>   <strong>Add a Task</strong></p>
       </div>
   </div>
 </div>
