@@ -27,8 +27,9 @@ class TasksController < ApplicationController
     @task.completed = !@task.completed
     @task.save
     authorize @task
-    html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
-    render json: { html_string: html_string }
+    html_string = render_to_string( partial: "mots/show_mot.html.erb", locals: {mot: @task.mot} )
+    html_string2 = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
+    render json: { html_string: html_string, html_string2: html_string2 }
   end
 
   def edit
