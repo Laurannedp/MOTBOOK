@@ -3,7 +3,6 @@ require 'uri'
 class SlackService
   def initialize(trigger)
     url
-    binding.pry
     notifier = Slack::Notifier.new url
     # notifier.username = 'Thibaut'
     # notifier.channel = ‘#random’
