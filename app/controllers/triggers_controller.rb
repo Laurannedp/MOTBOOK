@@ -27,7 +27,8 @@ class TriggersController < ApplicationController
         # TriggerSendSlackJob.set(wait_until: @motduedate + @task.delay.days).perform_later(current_user.id, trigger.id)
           TriggerSendSlackJob.perform_now(current_user.id, @trigger.id)
         elsif @trigger.feature == "mail"
-          TriggerSendEmailJob.set(wait_until: @motduedate + @task.delay.days).perform_later(current_user.id, @trigger.id)
+          TriggerSendEmailJob.perform_now(current_user.id, @trigger.id)
+          # TriggerSendEmailJob.set(wait_until: @mot.duedate + @task.delay.days).perform_later(current_user.id, @trigger.id)
         end
       html_string = render_to_string( partial: "mots/show_mot_task.html.erb", locals: {task: @task, mot: @task.mot} )
       render json: { html_string: html_string }
