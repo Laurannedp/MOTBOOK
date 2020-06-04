@@ -8,7 +8,7 @@ class TwilioService
     message = @client.messages.create(
                                       body: "#{trigger.name} : #{trigger.url}",
                                       from: 'whatsapp:+14155238886',
-                                      to: 'whatsapp:+32476859267'
+                                      to: 'whatsapp:+32496174768'
                                       )
 
     puts message.sid
