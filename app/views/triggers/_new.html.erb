@@ -8,7 +8,7 @@
                 <%= f.input :url, placeholder: 'Trigger content', label: false, error: 'A description is mandatory, please specify one' %>
               </div>
               <div class="col-2">
-                <%= f.select :feature, options_for_select(["mail", "slack"]), label: false, error: 'A feature is mandatory, please specify one' %>
+                <%= f.select :feature, options_for_select(["mail", "slack", "whatsapp"]), label: false, error: 'A feature is mandatory, please specify one' %>
               </div>
               <div class="col-2">
              <%= f.submit 'Save', class: "btn-primary" %>
