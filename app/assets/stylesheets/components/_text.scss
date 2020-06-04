@@ -20,12 +20,25 @@
   padding: 35px;
 }
 
+.sidebar-mot-name-db {
+  color: #fafafa !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 5px;
+}
 .sidebar-mot-name {
   color: #fafafa;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   text-transform: uppercase;
   padding: 5px;
+}
+
+.sidebar-mot-name-db:hover {
+  text-decoration: none;
+  color: #F9AA33 !important;
+  font-weight: 700;
 }
 
 .done {
