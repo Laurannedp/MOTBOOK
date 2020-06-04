@@ -231,7 +231,7 @@ p "Mot 3 created"
   #   name: "Date my secretary",
   #   description: "This is a secret task",
   #   duedate: Time.new(2021,01,01),
-  #   tag: "HR",
+  #   tag: "Personal",
   #   emoticon: "🎉",
   #   user: user
   # )
@@ -291,7 +291,7 @@ p "Mot 5 created"
         priority: Faker::Boolean,
         mot: mot6
       )
-
+      task2.save!
 p "Mot 6 created"
 
 # 4.times do

@@ -1,9 +1,9 @@
 const tooltip = () => {
         $(function () {
-          const bulle = document.querySelector("#bulle")
-          // bulle.tooltip()
-          // $('#bulle').tooltip()
-            console.log(document.querySelector("#bulle")
+          // console.log(document.querySelector("#bulle"))
+          // console.log($('#bulle'))
+            $('[data-toggle="tooltip"]').tooltip()
+
       })
   }
 
