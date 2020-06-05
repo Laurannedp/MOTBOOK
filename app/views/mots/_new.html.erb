@@ -6,7 +6,7 @@
     <%= simple_form_for(mot) do |f| %>
       <div class="row align-items-center">
         <div class="col-8 ml-4 p-3">
-          <h5 class="text"> 👉 Define the duedate of your MOT:</h5>
+          <h5 class="text"> 👉 Define a duedate of your MOT:</h5>
           <%= f.input :duedate, label: false, as: :date, html5: true, error: 'Duedate is mandatory, please specify one', input_html: { value: Date.today } %>
         </div>
       </div>
