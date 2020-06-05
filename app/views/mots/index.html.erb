@@ -39,7 +39,7 @@
     <div id="wrappernewmot">
       <% if @mot.present? %>
         <%= render "show_mot", mot: @mot  %>
-      <% elsif @mots.empty? %>
+      <% elsif !@mots.empty? %>
         <%= render "show_mot_homepage", tasks: @tasks  %>
       <% end %>
     </div>
