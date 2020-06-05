@@ -1,7 +1,7 @@
 <div id="tasks" id="mot-<%= mot.id %>">
   <% if mot.tasks.any? %>
   <% mot.tasks.each do |task| %>
-  <div class="container-task mt-4" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
+  <div class="container-task" data-controller="edittask" data-mot-id="<%= mot.id %>" data-task-id="<%= task.id %>" >
     <div class="row align-items-center m-4" style="height: 50px" data-target="edittask.wrapper">
       <div class="col-1">
         <% if task.delay > 0 %>
@@ -31,7 +31,7 @@
     </div>
   <% end %>
   <% else %>
-<div class="container border mt-2">
+<div class="container border mt-2 my-3">
   <div class="row align-items-center" style="height: 50px" data-target="edittask.wrapper">
       <div class="col-12">
   <%= 'No task yet' %>

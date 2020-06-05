@@ -15,24 +15,20 @@
   display: flex;
   flex-direction: column;
 }
+
 .search-card {
   padding: 3px;
   margin: 3px;
-  border-top: solid 1px #344955;
-}
-.sidebar-card-db {
-  margin-bottom: 3px;
-  border-top: solid 1px #344955;
 }
 
-.sidebar-card {
-  border-bottom: solid 1px #344955;
-  margin-bottom: 3px;
+.sidebar-card-db {
+  border-top: solid 1px #344955;
 }
 
 .sidebar-card {
   border-bottom: solid 1px #344955;
   background-color: #232F34;
+  cursor: pointer;
 }
 
 .active-side-bar:hover {
