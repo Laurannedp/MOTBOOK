@@ -1,18 +1,18 @@
 
-        <%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask ajax:error->addtask#validateTask", controller: "addtask"}}, remote: true   do |f| %>
-          <div class="row align-items-center" style="height: 50px">
-              <div class="col-4">
-                <%= f.input :name, placeholder: 'Trigger title', label: false, error: 'A name is mandatory, please specify one' %>
-              </div>
-              <div class="col-4">
-                <%= f.input :url, placeholder: 'Trigger content', label: false, error: 'A description is mandatory, please specify one' %>
-              </div>
-              <div class="col-3">
-                <%= f.input :feature, class: "form-control", prompt: 'Type', collection: (["mail", "slack", "whatsapp"]), label: false, error: 'A feature is mandatory, please specify one' %>
-              </div>
-              <div class="col-1 form-group">
-             <%= f.submit 'Save', class: "btn-primary" %>
-              </div>
-            </div>
-        <% end %>
-
+<%= simple_form_for [@mot, @task, @trigger], html: { data: {action: "ajax:success->addtask#addTask ajax:error->addtask#validateTask", controller: "addtask"}}, remote: true   do |f| %>
+    <tr>
+      <th scope="row m-2" ></th>
+      <td>
+        <%= f.input :feature, class: "form-control", prompt: 'Type', collection: (["mail", "slack", "whatsapp"]), label: false, error: 'A feature is mandatory, please specify one' %>
+      </td>
+      <td>
+        <%= f.input :name, placeholder: 'Destinary', label: false, error: 'A name is mandatory, please specify one' %>
+      </td>
+      <td>
+        <%= f.input :url, placeholder: 'Content', label: false, error: 'A description is mandatory, please specify one' %>
+      </td>
+      <td>
+          <%= f.submit 'Save', class: "button-1" %>
+      </td>
+     </tr>
+<% end %>

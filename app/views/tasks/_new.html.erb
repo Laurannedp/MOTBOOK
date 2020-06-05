@@ -1,5 +1,4 @@
 <div class= "container-task ">
-
 <%= simple_form_for [@mot, @task], html: { data: {action: "ajax:success->addtask#addTask ajax:error->addtask#validateTask" , controller: "addtask"}}, remote: true do |f| %>
   <div class="row align-items-center" style="height: 70px">
       <div class="col-2 ml-2 mt-3 mb-3">
@@ -16,6 +15,5 @@
     </div>
   </div>
 <% end %>
-
 </div>
 
