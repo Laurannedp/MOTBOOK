@@ -1,0 +1,6 @@
+
+meta_product_name: "Motbook"
+meta_title: "MotBook - Automate your management tasks!"
+meta_description: "Mtbook is a MVP app made by the students of Le Wagon - batch 391 in Brussels"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
