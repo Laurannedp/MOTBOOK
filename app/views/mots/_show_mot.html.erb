@@ -36,7 +36,7 @@
     <div class="col-2"></div>
   </div>
   <div id="editor"><%= mot.description %></div>
-  <script>
+<!--   <script>
     ClassicEditor
     .create( document.querySelector( '#editor' ) )
     .then( editor => {
@@ -45,7 +45,7 @@
     .catch( error => {
       console.error( error );
     } );
-  </script>
+  </script> -->
   <div data-controller="checktask" data-target="checktask.wrapper">
     <%= render "mots/show_mot_task.html.erb", mot: mot %>
   </div>

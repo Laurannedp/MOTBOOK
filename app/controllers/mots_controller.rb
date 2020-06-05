@@ -18,6 +18,9 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
       @tasks = Mot.all.map do |mot|
         mot.tasks.select{|task| (mot.duedate + task.delay.days).between?(Date.today.beginning_of_week, Date.today.end_of_week)}
       end.flatten.compact
+      if params[:mot].present?
+        @mot = Mot.find(params[:mot])
+      end
      end
 
     def show
