@@ -37,6 +37,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
         @mot.user = current_user
         authorize @mot
         @mot.save
+        flash[:notice] = "Your mot has been created!"
         redirect_to mots_path( mot: @mot)
     end
 
@@ -54,6 +55,7 @@ before_action :set_mot, only: [:show, :edit, :update, :destroy]
 
     def destroy
       @mot.destroy
+      flash[:notice] = "Your mot has been deleted!"
       redirect_to root_path
     end
 
