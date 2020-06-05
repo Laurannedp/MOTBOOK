@@ -1,18 +1,33 @@
+<div class="container p-4">
+  <h2 class="text"> Create a new MOT 📝</h2>
+</div>
+<div class="container-new-mot p-4">
+    <%= simple_form_for(mot) do |f| %>
+      <div class="row align-items-center">
+        <div class="col-8 p-4">
+          <h5 class="text"> 👉 Define the duedate of your MOT:</h5>
+          <%= f.input :duedate, label: false, as: :date, html5: true, error: 'Duedate is mandatory, please specify one', input_html: { value: Date.today } %>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-3 p-4">
+          <h5 class="text"> 🤙 Choose an incon:</h5>
+          <%= f.input :emoticon, collection: ["🏃‍♀️","😃", "👋", "🤘", "✊", "💁", "🐻","😈", "🌻", "🍔", "🍹", "🎷", "⚽️","🚘", "🏳️‍🌈", "🎉", "💡", "🤪", "🤖", "🤮", "🕺","🤯", "🍌"], label: false, error: 'Description is mandatory, please specify one' %>  <!--emoticon: (128512..128561 ).to_a.map{|i| [i].pack('U')} -->
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-6 p-4">
+          <h5 class="text"> 👉 Give a name to your MOT :</h5>
+          <%= f.input :name, label: false, placeholder: 'Your MOT name', error: 'Description is mandatory, please specify one' %>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-4 p-4">
+          <%= f.button :submit, class: "btn-primary" %>
+        </div>
+      </div>
+  <% end %>
+</div>
 
-        <%= simple_form_for(mot) do |f| %>
-          <div class="row">
-             <div class="col-3 p-4">
-                <%= f.input :duedate, label: false, as: :date, html5: true, error: 'Duedate is mandatory, please specify one', input_html: { value: Date.today } %>
-              </div>
-              <div class="col-1 p-4">
-                <%= f.input :emoticon, collection: ["🏃‍♀️","😃", "👋", "🤘", "✊", "💁", "🐻","😈", "🌻", "🍔", "🍹", "🎷", "⚽️","🚘", "🏳️‍🌈", "🎉", "💡", "🤪", "🤖", "🤮", "🕺","🤯", "🍌"], label: false, error: 'Description is mandatory, please specify one' %>  <!--emoticon: (128512..128561 ).to_a.map{|i| [i].pack('U')} -->
-              </div>
-              <div class="col-3 p-4">
-                <%= f.input :name, label: false, placeholder: 'Your MOT name', error: 'Description is mandatory, please specify one' %>
-              </div>
-              <div class="col-2 p-4">
-              <%= f.button :submit, class: "btn-primary" %>
-              </div>
-          </div>
-        <% end %>
+
 

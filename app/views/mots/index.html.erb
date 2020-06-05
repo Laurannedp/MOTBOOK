@@ -1,28 +1,39 @@
 <div class="row">
-  <div class="main-sidebar-fixed col-2">
-
-    <h1 class="sidebar-title">My Mots</h1>
-    <%= form_tag mots_path, class: 'search-style form-inline ml-2', method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control center ",
-    placeholder: "Search"
-    %>
-    <% end %>
-    <% @mots.each do |mot| %>
-      <div class="list-group-item-action">
-      <div class="sidebar-card ml-2">
-        <div class="flex-center m-2" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
-          <p class= "sidebar-mot-name"><%= mot.emoticon %> <%= mot.name %></p>
+  <div class="main-sidebar-fixed col-2" data-controller="sidebar">
+    <% if user_signed_in? %>
+        <%= link_to root_path, :action => 'go' do %>
+          <div class="list-group-item-action <%='active-side-bar' if params[:action] == "index" %>" >
+            <div class="sidebar-card ml-2">
+                  <div class="flex-center m-2"></div>
+              <p class= "sidebar-mot-name sidebar-title">My Dashboard</p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    <div class="search-card flex-center mb-4">
+      <%= form_tag mots_path, class: 'search-style form-inline ml-2', method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control center ",
+      placeholder: "Search"%>
+      <% end %>
+    </div>
+       <div class="list-group-item-action">
+        <div class="sidebar-card ml-2" data-controller="newmot">
+            <div class="flex-center m-2">
+          <p class= "sidebar-mot-name" data-action="click->newmot#createMot"><i class="fas fa-plus"></i> Add a MOT</p>
         </div>
       </div>
     </div>
-    <% end %>
-    <div class="list-group-item-action">
-      <div class="sidebar-card ml-4 flex-center my-1" data-controller="newmot">
-        <p class= "sidebar-mot-name" data-action="click->newmot#createMot"><i class="fas fa-plus"></i> Add a MOT</p>
+    <% @mots.each do |mot| %>
+      <div class="list-group-item-action">
+        <div class="sidebar-card ml-2">
+          <div class="flex-center m-2" data-controller="showmot" data-action="click->showmot#renderMot" data-mot-id="<%= mot.id %>" >
+            <p class= "sidebar-mot-name"><%= mot.emoticon %> <%= mot.name %></p>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="col-10 col-md-9">
     <div id="wrappernewmot">

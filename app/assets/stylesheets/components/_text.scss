@@ -1,3 +1,9 @@
+.motbook {
+  font-family: 'Nunito', sans-serif;
+  font-size: 32px;
+  color: #506B82 !important;
+
+}
 
 .title {
   color: white;
@@ -9,17 +15,35 @@
   display: block;
 }
 
-.sidebar-title {
-  color: #fafafa;
+.title-mot {
+  color: #444352;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: 48px;
+  text-align: center;
+  line-height: 1;
+  display: block;
+}
+
+
+.sidebar-title {
+  line-height: 1.5 !important;
+  font-size: 20px !important;
+  text-align: center !important;
+  font-style: bold !important;
+  text-decoration: none !important;
+  color: gray !important;
+}
+
+.sidebar-mot-name-db {
+  color: #fafafa !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
   text-align: center;
   line-height: 1.2;
   text-transform: uppercase;
   display: block;
-  padding: 35px;
-}
 
+}
 .sidebar-mot-name {
   color: #fafafa;
   font-family: 'Roboto', sans-serif;
@@ -27,6 +51,12 @@
   text-transform: uppercase;
   padding: 5px;
 }
+
+// .sidebar-mot-name-db:hover {
+//   text-decoration: none;
+//   color: #F9AA33 !important;
+//   font-weight: 700;
+// }
 
 .done {
   color:gray;
@@ -43,4 +73,15 @@
 
 .form-control.select.optional {
   color: #6C757D;
+}
+
+.h5 {
+  color: #444352;
+  font-size: 8px;
+  font-style: bold;
+  padding: 2px;
+}
+
+.text {
+  color: #444352;
 }
