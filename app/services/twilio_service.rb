@@ -10,7 +10,6 @@ class TwilioService
                                  body: "#{trigger.name} : #{trigger.url}",
                                  from: 'whatsapp:+14155238886',
                                  to: 'whatsapp:+32479756915'
-                                 to: 'whatsapp:+32496174768'
                                )
 
     puts message.sid
