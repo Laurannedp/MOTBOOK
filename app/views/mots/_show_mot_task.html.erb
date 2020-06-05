@@ -25,17 +25,20 @@
             <i class="far fa-trash-alt mx-1" data-action="click->edittask#destroyTask"></i>
           </div>
         </div>
+
       </div>
         <div class="collapse" id="collapseExample-<%= task.id%>" >
             <%= render "mots/show_mot_task_trigger.html.erb", task: task, mot: mot %>
         </div>
     <% end  %>
   <% else %>
+
     <div class="container mt-2">
       <div class="row align-items-center" style="height: 50px" data-target="edittask.wrapper">
         <div class="col-12 p-4">
           <h5 class="text-center"><%= '🤷‍♀️ You have no task yet!' %></h5>
         </div>
+
       </div>
     </div>
   <% end %>

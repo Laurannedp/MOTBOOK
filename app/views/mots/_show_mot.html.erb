@@ -6,49 +6,47 @@
       </div>
       <div class="col-1" >
         <i class="fas fa-edit mx-1" data-action="click->editmot#editMot"></i>
-          <%= link_to raw('<i class="far fa-trash-alt"></i>'), mot_path(mot), method: :delete, remote: true %>
+        <%= link_to raw('<i class="far fa-trash-alt"></i>'), mot_path(mot), method: :delete, remote: true %>
       </div>
     </div>
     <div class="row align-items-center" style="height: 50px">
-      <h5 class="text">Duedate :</h5>
-         <div class="col-4 mot-meta">
-          <h2>
-            <span class="date-calendar">
-              <span class="month"><%= mot.duedate.strftime("%B") %></span>
-              <span class="day"><%= mot.duedate.day %></span>
-            </span>
-              <div class="col-1"></div>
-          </h2>
-        </div>
+      <h5 class="text">Duedate </h5>
+      <div class="col-4 mot-meta">
+        <h2>
+          <span class="date-calendar">
+            <span class="month"><%= mot.duedate.strftime("%B") %></span>
+            <span class="day"><%= mot.duedate.day %></span>
+          </span>
+          <div class="col-1"></div>
+        </h2>
+      </div>
     </div>
     <div class="row align-items-center" style="height: 100px">
-      <h5 class="text">Progress :</h5>
-          <div class="col-4 mot-meta">
-              <% if mot.tasks.count > 0 %>
-                  <div class="progress: ">
-                    <% arraycompleted = mot.tasks.reject {|task| task.completed == false} %>
-                    <% percentage = arraycompleted.count.to_f  / mot.tasks.count.to_f * 100 %>
-                      <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= percentage.to_i %>%;" aria-valuenow="<%= percentage %>%" aria-valuemin="0" aria-valuemax="100"><%= percentage.to_i%>%</div>
-                  </div>
-              <% end %>
-          </div>
-       </div>
-        <div class="col-2"></div>
-    </div>
-      <div id="editor"><%= mot.description %></div>
-        <script>
-          ClassicEditor
-                  .create( document.querySelector( '#editor' ) )
-                  .then( editor => {
-                          console.log( editor );
-                  } )
-                  .catch( error => {
-                          console.error( error );
-                  } );
-        </script>
-        <div data-controller="checktask" data-target="checktask.wrapper">
-          <%= render "mots/show_mot_task.html.erb", mot: mot %>
+      <h5 class="text">Progress </h5>
+      <div class="col-4 mot-meta">
+        <% if mot.tasks.count > 0 %>
+        <div class="progress: ">
+          <% arraycompleted = mot.tasks.reject {|task| task.completed == false} %>
+          <% percentage = arraycompleted.count.to_f  / mot.tasks.count.to_f * 100 %>
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= percentage.to_i %>%;" aria-valuenow="<%= percentage %>%" aria-valuemin="0" aria-valuemax="100"><%= percentage.to_i%>%</div>
         </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div id="editor"><%= mot.description %></div>
+  <script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .then( editor => {
+      console.log( editor );
+    } )
+    .catch( error => {
+      console.error( error );
+    } );
+  </script>
+  <div data-controller="checktask" data-target="checktask.wrapper">
+    <%= render "mots/show_mot_task.html.erb", mot: mot %>
   </div>
 </div>
-
